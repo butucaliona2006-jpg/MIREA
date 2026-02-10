@@ -6,16 +6,41 @@ body {
     text-align: center;
 }
 
+/* NAVBAR */
 nav {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 2rem 5%;
     letter-spacing: 2px;
 }
 
-ul { display: flex; list-style: none; gap: 20px; }
-a { text-decoration: none; color: #1a1a1a; font-size: 0.7rem; text-transform: uppercase; }
+.logo {
+    font-size: 1.2rem;
+    letter-spacing: 6px;
+    font-weight: 300;
+}
 
+ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+a:hover {
+    opacity: 0.5;
+}
+
+/* HERO */
 .hero {
     padding: 15vh 10%;
 }
@@ -34,6 +59,7 @@ p {
     font-style: italic;
 }
 
+/* GRID */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -51,4 +77,28 @@ p {
     font-size: 0.8rem;
     letter-spacing: 2px;
     color: #ccc;
+    transition: background 0.4s ease, color 0.4s ease;
 }
+
+.item:hover {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+        letter-spacing: 8px;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
