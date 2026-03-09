@@ -1,3 +1,4 @@
+/* Stilul general al paginii: elimină marginile implicite, stabilește fontul textului, culoarea fundalului, culoarea textului și aliniază conținutul pe centru */
 body {
     margin: 0;
     font-family: 'Helvetica', sans-serif;
@@ -6,7 +7,7 @@ body {
     text-align: center;
 }
 
-/* NAVBAR */
+/* Meniul de navigare al site-ului (navbar): aranjează logo-ul și linkurile pe orizontală, cu spațiu între ele și aliniere pe centru */
 nav {
     display: flex;
     justify-content: space-between;
@@ -15,12 +16,14 @@ nav {
     letter-spacing: 2px;
 }
 
+/* Stilul pentru logo-ul site-ului: modifică dimensiunea textului, spațiul dintre litere și grosimea fontului */
 .logo {
     font-size: 1.2rem;
     letter-spacing: 6px;
     font-weight: 300;
 }
 
+/* Lista meniului: elimină stilul implicit al listei și aranjează elementele pe orizontală cu spațiu între ele */
 ul {
     display: flex;
     list-style: none;
@@ -28,6 +31,7 @@ ul {
     padding: 0;
 }
 
+/* Stilul linkurilor din meniu: elimină sublinierea, stabilește culoarea, dimensiunea textului și adaugă un efect de tranziție */
 a {
     text-decoration: none;
     color: #1a1a1a;
@@ -36,15 +40,17 @@ a {
     transition: opacity 0.3s ease;
 }
 
+/* Efect vizual când cursorul trece peste un link: face textul puțin transparent */
 a:hover {
     opacity: 0.5;
 }
 
-/* HERO */
+/* Secțiunea principală a paginii (hero): zona de prezentare unde apare titlul și descrierea site-ului */
 .hero {
     padding: 15vh 10%;
 }
 
+/* Stilul titlului principal al paginii: dimensiune mare, font subțire și spațiu mare între litere */
 h1 {
     font-size: 4rem;
     font-weight: 200;
@@ -52,6 +58,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* Stilul paragrafelor: dimensiune normală a textului, culoare gri și text italic pentru descriere */
 p {
     font-size: 1rem;
     font-weight: 300;
@@ -59,7 +66,7 @@ p {
     font-style: italic;
 }
 
-/* GRID */
+/* Gridul de produse sau elemente: creează un layout cu 3 coloane egale și spațiu între elemente */
 .grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -67,6 +74,7 @@ p {
     padding: 0 5%;
 }
 
+/* Elementele din grid: fiecare bloc are fundal deschis, dimensiune fixă și text centrat */
 .item {
     background: #f9f9f9;
     height: 400px;
@@ -80,12 +88,13 @@ p {
     transition: background 0.4s ease, color 0.4s ease;
 }
 
+/* Efect când cursorul trece peste element: fundalul devine închis și textul devine alb */
 .item:hover {
     background: #1a1a1a;
     color: #fff;
 }
 
-/* RESPONSIVE */
+/* Stiluri responsive: adaptează pagina pentru ecrane mai mici, reducând dimensiunea titlului, schimbând meniul pe verticală și afișând gridul într-o singură coloană */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
