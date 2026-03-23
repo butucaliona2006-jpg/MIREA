@@ -266,3 +266,136 @@ function lazyLoadImages() {
 }
 
 document.addEventListener('DOMContentLoaded', lazyLoadImages);
+// ============================================
+// 7. MODAL PENTRU LOOKBOOK
+// ============================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('lookModal');
+    const closeModal = document.querySelector('.close-modal');
+    const lookItems = document.querySelectorAll('.lookbook-item');
+    
+    // Date pentru fiecare look
+    const lookData = {
+        1: {
+            title: 'Look 01 - Eleganță urbană',
+            description: 'O ținută perfectă pentru oraș, care combină confortul cu stilul rafinat.',
+            details: 'Blazer crem, rochie midi neagră, botine din piele și geantă minimalistă.'
+        },
+        2: {
+            title: 'Look 02 - Minimalism natural',
+            description: 'Simplitate și naturalețe pentru zilele în care vrei să te simți liberă.',
+            details: 'Pantaloni din in, cămașă albă oversized, sandale cu talpă joasă.'
+        },
+        3: {
+            title: 'Look 03 - Serenity',
+            description: 'Eleganță subtilă pentru momentele speciale.',
+            details: 'Rochie fluidă în nuanțe neutre, bijuterii fine și clutch elegant.'
+        }
+    };
+    
+    if (lookItems.length > 0 && modal) {
+        lookItems.forEach(item => {
+            const lookNumber = item.getAttribute('data-look');
+            const viewButton = item.querySelector('.view-detail');
+            
+            const showModal = () => {
+                const data = lookData[lookNumber];
+                if (data) {
+                    document.getElementById('modalTitle').innerText = data.title;
+                    document.getElementById('modalDescription').innerText = data.description;
+                    document.getElementById('modalDetails').innerHTML = `
+                        <div class="modal-details-content">
+                            <p><strong>Piese componente:</strong></p>
+                            <p>${data.details}</p>
+                        </div>
+                    `;
+                    modal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            
+            if (viewButton) {
+                viewButton.addEventListener('click', showModal);
+            }
+            
+            // Poți activa și la click pe întreg item-ul
+            item.addEventListener('click', (e) => {
+                if (!e.target.classList.contains('view-detail')) {
+                    showModal();
+                }
+            });
+        });
+        
+        // Închide modal
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+        }
+        
+        // Închide la click în afara modal-ului
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Închide cu tasta Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+});
+
+// ============================================
+// 8. EFECT DE TIPĂRIRE PENTRU COLEcȚIE
+// ============================================
+
+function addHoverDescription() {
+    const items = document.querySelectorAll('.grid .item');
+    const descriptions = {
+        'Rochii': 'Descoperă rochiile elegante pentru orice ocazie',
+        'Costume': 'Costume tailore pentru femei puternice',
+        'Basics': 'Piese esențiale pentru garderoba ta',
+        'Accesorii': 'Detalii care fac diferența',
+        'New In': 'Cele mai noi tendințe',
+        'Limited': 'Ediții limitate disponibile'
+    };
+    
+    items.forEach(item => {
+        const text = item.innerText.trim();
+        if (descriptions[text]) {
+            item.setAttribute('data-description', descriptions[text]);
+            
+            // Adaugă tooltip
+            item.addEventListener('mouseenter', function() {
+                const desc = this.getAttribute('data-description');
+                if (desc && !this.querySelector('.tooltip')) {
+                    const tooltip = document.createElement('span');
+                    tooltip.className = 'tooltip';
+                    tooltip.innerText = desc;
+                    this.appendChild(tooltip);
+                    
+                    setTimeout(() => {
+                        tooltip.style.opacity = '1';
+                    }, 10);
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const tooltip = this.querySelector('.tooltip');
+                if (tooltip) {
+                    tooltip.remove();
+                }
+            });
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', addHoverDescription);
