@@ -1,113 +1,170 @@
-/* Stilul general al paginii: elimină marginile implicite, stabilește fontul textului, culoarea fundalului, culoarea textului și aliniază conținutul pe centru */
-body {
-    margin: 0;
-    font-family: 'Helvetica', sans-serif;
-    background-color: #fff;
-    color: #1a1a1a;
-    text-align: center;
-}
+/* ============================================
+   STILURI PENTRU FORMULAR DE CONTACT
+   ============================================ */
 
-/* Meniul de navigare al site-ului (navbar): aranjează logo-ul și linkurile pe orizontală, cu spațiu între ele și aliniere pe centru */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 5%;
-    letter-spacing: 2px;
-}
-
-/* Stilul pentru logo-ul site-ului: modifică dimensiunea textului, spațiul dintre litere și grosimea fontului */
-.logo {
-    font-size: 1.2rem;
-    letter-spacing: 6px;
-    font-weight: 300;
-}
-
-/* Lista meniului: elimină stilul implicit al listei și aranjează elementele pe orizontală cu spațiu între ele */
-ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    padding: 0;
-}
-
-/* Stilul linkurilor din meniu: elimină sublinierea, stabilește culoarea, dimensiunea textului și adaugă un efect de tranziție */
-a {
-    text-decoration: none;
-    color: #1a1a1a;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    transition: opacity 0.3s ease;
-}
-
-/* Efect vizual când cursorul trece peste un link: face textul puțin transparent */
-a:hover {
-    opacity: 0.5;
-}
-
-/* Secțiunea principală a paginii (hero): zona de prezentare unde apare titlul și descrierea site-ului */
-.hero {
-    padding: 15vh 10%;
-}
-
-/* Stilul titlului principal al paginii: dimensiune mare, font subțire și spațiu mare între litere */
-h1 {
-    font-size: 4rem;
-    font-weight: 200;
-    letter-spacing: 15px;
-    margin-bottom: 20px;
-}
-
-/* Stilul paragrafelor: dimensiune normală a textului, culoare gri și text italic pentru descriere */
-p {
-    font-size: 1rem;
-    font-weight: 300;
-    color: #666;
-    font-style: italic;
-}
-
-/* Gridul de produse sau elemente: creează un layout cu 3 coloane egale și spațiu între elemente */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    padding: 0 5%;
-}
-
-/* Elementele din grid: fiecare bloc are fundal deschis, dimensiune fixă și text centrat */
-.item {
+.contact-form-container {
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
     background: #f9f9f9;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    color: #ccc;
-    transition: background 0.4s ease, color 0.4s ease;
+    border-radius: 8px;
+    text-align: left;
 }
 
-/* Efect când cursorul trece peste element: fundalul devine închis și textul devine alb */
-.item:hover {
+.contact-form-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    background: #fff;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #1a1a1a;
+}
+
+.submit-btn {
     background: #1a1a1a;
     color: #fff;
+    padding: 1rem;
+    border: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    margin-top: 1rem;
 }
 
-/* Stiluri responsive: adaptează pagina pentru ecrane mai mici, reducând dimensiunea titlului, schimbând meniul pe verticală și afișând gridul într-o singură coloană */
+.submit-btn:hover {
+    opacity: 0.7;
+}
+
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.9rem;
+    display: none;
+    transition: opacity 0.5s ease;
+}
+
+.form-message.success {
+    background: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.form-message.error {
+    background: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* ============================================
+   STILURI PENTRU CONTACT INFO
+   ============================================ */
+
+.contact-info {
+    margin: 2rem 0;
+}
+
+.contact-info p {
+    margin: 0.5rem 0;
+}
+
+.contact-info a {
+    color: #1a1a1a;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.contact-info a:hover {
+    opacity: 0.7;
+}
+
+/* ============================================
+   STILURI PENTRU BUTON SCROLL SUS
+   ============================================ */
+
+#scrollTopBtn:hover {
+    transform: scale(1.1);
+    background: #333;
+}
+
+/* ============================================
+   STILURI PENTRU ANIMAȚII
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero, .grid {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* ============================================
+   STILURI RESPONSIVE
+   ============================================ */
+
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-        letter-spacing: 8px;
+    .contact-form-container {
+        margin: 2rem 1rem;
+        padding: 1.5rem;
     }
-
-    nav {
-        flex-direction: column;
-        gap: 20px;
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        font-size: 16px; /* Previne zoom-ul pe mobil */
     }
-
-    .grid {
-        grid-template-columns: 1fr;
+    
+    #scrollTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
     }
 }
-
