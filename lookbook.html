@@ -25,11 +25,40 @@
         <p>Inspirație minimalistă pentru fiecare zi.</p>
     </header>
 
-    <section class="grid">
-        <div class="item">Look 01</div>
-        <div class="item">Look 02</div>
-        <div class="item">Look 03</div>
+    <section class="grid lookbook-grid">
+        <div class="item lookbook-item" data-look="1">
+            <div class="look-content">
+                <span class="look-number">01</span>
+                <span class="look-title">Eleganță urbană</span>
+                <button class="view-detail">Vezi detaliu</button>
+            </div>
+        </div>
+        <div class="item lookbook-item" data-look="2">
+            <div class="look-content">
+                <span class="look-number">02</span>
+                <span class="look-title">Minimalism natural</span>
+                <button class="view-detail">Vezi detaliu</button>
+            </div>
+        </div>
+        <div class="item lookbook-item" data-look="3">
+            <div class="look-content">
+                <span class="look-number">03</span>
+                <span class="look-title">Serenity</span>
+                <button class="view-detail">Vezi detaliu</button>
+            </div>
+        </div>
     </section>
 
+    <!-- Modal pentru detalii look -->
+    <div id="lookModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
