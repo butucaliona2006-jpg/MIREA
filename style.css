@@ -1,15 +1,14 @@
+/* SETĂRI GENERALE */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+html { scroll-behavior: smooth; }
 
 body {
+    margin: 0;
     font-family: 'Tenor Sans', serif;
-    background-color: #EAE5E0; /* Culoarea bej a paginii */
+    background-color: #E6E1DC;
     color: #4A4A4A;
+    text-align: center;
 }
 
 /* NAVIGARE */
@@ -17,85 +16,77 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 35px 8%;
+    padding: 2rem 10%;
 }
 
-.logo { font-size: 1.6rem; letter-spacing: 8px; }
+.logo { font-size: 1.5rem; letter-spacing: 5px; }
 
-nav ul { display: flex; list-style: none; gap: 25px; }
+nav ul { display: flex; list-style: none; gap: 20px; }
 
-nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; letter-spacing: 1px; }
+nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
 
-/* HERO */
-.hero-simple { text-align: center; padding: 70px 20px; }
-
-.hero-simple h1 { font-size: 3.5rem; letter-spacing: 15px; font-weight: normal; margin-bottom: 10px; }
-
-/* GRILA DE FERESTRE ALBE (CELE 4) */
-.arrival-style-grid {
+/* CELE 4 FERESTRE (STIL NEW ARRIVAL) */
+.main-categories {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 pe rând exact ca în imaginea ta */
+    grid-template-columns: 1fr 1fr; /* 2 pe rând */
     gap: 30px;
-    padding: 0 8% 100px 8%;
+    padding: 50px 10%;
 }
 
-.arrival-card {
-    background-color: #F8F5F2; /* Albul ferestrelor */
-    padding: 110px 20px;
+.category-window {
+    background-color: #F0EDE9; /* Culoarea de fundal din ferestrele tale */
+    padding: 80px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    min-height: 400px;
+    border: 1px solid #D6D1CC;
+    transition: 0.3s;
 }
 
-.arrival-card h2 {
-    font-size: 2rem;
-    letter-spacing: 6px;
-    margin-bottom: 35px;
-    font-weight: normal;
+.category-window h3 {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
 }
 
-.shop-btn {
+.btn-explore {
+    padding: 10px 30px;
     border: 1px solid #4A4A4A;
-    padding: 12px 45px;
     text-decoration: none;
     color: #4A4A4A;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 2px;
     transition: 0.3s;
 }
 
-.shop-btn:hover {
+.btn-explore:hover {
     background-color: #4A4A4A;
     color: #fff;
 }
 
 /* CATALOG PRODUSE */
-.product-section {
-    background-color: #EAE5E0;
-    padding: 100px 8%;
-    text-align: center;
-}
-
-.catalog-title { letter-spacing: 8px; margin-bottom: 60px; font-weight: normal; }
+.product-section { padding: 80px 10%; }
 
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 45px;
+    gap: 30px;
 }
 
-.product-card { text-align: left; }
+.product-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
 
-.product-card img { width: 100%; height: auto; margin-bottom: 15px; }
+.product-card h4 { font-size: 0.9rem; margin: 15px 0 5px; font-weight: 400; }
 
 /* RESPONSIVITATE PENTRU TELEFON */
-@media (max-width: 800px) {
-    .arrival-style-grid, .product-grid {
-        grid-template-columns: 1fr; /* Se pun una sub alta pe mobil */
+@media (max-width: 768px) {
+    .main-categories, .product-grid {
+        grid-template-columns: 1fr; /* Totul pe o singură coloană pe mobil */
     }
+    
+    nav ul { display: none; } /* Ascundem meniul pe mobil pentru claritate */
 }
-
-footer { padding: 60px; font-size: 0.75rem; color: #888; letter-spacing: 1px; }
