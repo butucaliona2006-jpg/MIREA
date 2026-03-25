@@ -31,7 +31,7 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
 
 .hero h1 { font-size: 3rem; letter-spacing: 5px; margin-bottom: 10px; }
 
-/* GRILA GENERALĂ (PENTRU AMBELE PAGINI) */
+/* GRILA CATEGORII (CELE 4 FERESTRE ALBE) */
 .featured-grid, .arrival-style-grid {
     display: grid;
     grid-template-columns: 1fr 1fr; /* 2 pe rând */
@@ -71,9 +71,64 @@ h2 { font-size: 1.8rem; letter-spacing: 4px; margin-bottom: 30px; font-weight: n
     color: #FDFBFA;
 }
 
+/* --- SECȚIUNEA DE PRODUSE (IMAGINI ȘI PREȚURI) --- */
+
+.product-section {
+    padding: 100px 10%;
+    background-color: #E6E1DC;
+    text-align: center;
+}
+
+.catalog-title {
+    font-size: 1.5rem;
+    letter-spacing: 8px;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+}
+
+/* Grila care pune produsele pe 3 coloane */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    text-align: left; /* Textul sub poză să fie aliniat la stânga */
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+/* Efect de mărire ușoară când pui mouse-ul pe poză */
+.product-card img:hover {
+    transform: scale(1.02);
+}
+
+.product-card h4 {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: normal;
+}
+
+.product-card p {
+    font-size: 0.9rem;
+    color: #777;
+}
+
 /* MOBIL */
 @media (max-width: 768px) {
-    .featured-grid, .arrival-style-grid { grid-template-columns: 1fr; }
+    .featured-grid, .arrival-style-grid, .product-grid { 
+        grid-template-columns: 1fr; /* Pe telefon toate devin o singură coloană */
+    }
 }
 
 footer { padding: 50px; text-align: center; font-size: 0.8rem; color: #888; }
