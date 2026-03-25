@@ -1,184 +1,109 @@
-/* --- FUNDAL ȘI TIPOGRAFIE --- */
-/* Importăm fontul serif 'Tenor Sans' pentru un aspect premium */
+/* Import font elegant */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 body {
     margin: 0;
-    /* Font elegant serif, asemănător cu cel din imagini */
     font-family: 'Tenor Sans', serif;
-    /* Culoarea de fundal bej/crem din imagini */
     background-color: #E6E1DC; 
-    /* Text maro închis/gri cald, nu negru pur */
     color: #4A4A4A;
     text-align: center;
-    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* --- MENIUL DE NAVIGARE --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 3rem 10%; /* Am mărit spațierea pentru un aspect aerisit */
-    letter-spacing: 2px;
+    padding: 2.5rem 10%;
 }
 
 .logo {
-    font-size: 1.5rem;
-    letter-spacing: 8px; /* Mai mult spațiu, ca în imagini */
-    font-weight: 400;
+    font-size: 1.4rem;
+    letter-spacing: 7px;
     text-transform: uppercase;
 }
 
 ul {
     display: flex;
     list-style: none;
-    gap: 30px; /* Mai mult spațiu între linkuri */
-    padding: 0;
+    gap: 25px;
 }
 
 a {
     text-decoration: none;
     color: #4A4A4A;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s;
 }
 
 a:hover {
-    color: #8C8C8C; /* Un gri mai deschis la hover */
+    opacity: 0.6;
 }
 
-/* --- SECȚIUNEA PRINCIPALĂ (HERO) --- */
 .hero {
-    padding: 10vh 10%; /* Mai compact pe verticală */
+    padding: 8vh 10%;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 200;
-    letter-spacing: 10px; /* Ca în 'New Collection' din imagini */
-    margin-bottom: 15px;
-    text-transform: uppercase;
+    letter-spacing: 12px;
+    margin-bottom: 20px;
 }
 
-/* Stil pentru slogan/descriere */
-.hero p {
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: #666;
-    font-style: italic; /* Menținem italic pentru contrast */
-    max-width: 600px;
-    margin: 0 auto;
+p {
+    font-size: 1rem;
+    font-style: italic;
+    color: #777;
 }
 
-/* --- GRID ȘI ELEMENTE DE CONȚINUT --- */
+/* Grid-ul Estetic */
 .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 coloane, ca în structura din imagini */
-    gap: 40px; /* Mai mult spațiu între elemente */
-    padding: 5vh 10%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    padding: 0 10%;
 }
 
-/* Cardurile care vor conține imagini și text */
 .item {
-    background: #F4F1EE; /* Bej foarte deschis pentru carduri */
-    border-radius: 4px;
-    overflow: hidden;
+    background: #F4F1EE;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 3px;
-    color: #8C8C8C;
-    height: auto; /* Înălțimea va fi dată de conținut (imagini) */
-    padding: 40px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 2px;
+    transition: transform 0.4s ease;
 }
 
 .item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
 }
 
-/* --- STIL FORMULAR CONTACT (Pentru Lab 3) --- */
-.form-container {
-    max-width: 450px;
-    margin: 60px auto 0;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-input, textarea {
-    border: none;
-    border-bottom: 1px solid #C4C4C4; /* O linie gri cald discretă */
-    background: transparent;
-    padding: 12px 0;
-    font-family: 'Tenor Sans', serif;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-    color: #4A4A4A;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-input::placeholder, textarea::placeholder {
-    color: #A0A0A0;
-    text-transform: uppercase;
-}
-
-input:focus, textarea:focus {
-    border-bottom: 1px solid #4A4A4A;
-}
-
-button {
-    background: transparent;
-    color: #4A4A4A;
+/* Stil Butoane */
+.button-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
     border: 1px solid #4A4A4A;
-    padding: 15px;
-    margin-top: 25px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    font-family: 'Tenor Sans', serif;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+    color: #4A4A4A;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    opacity: 1 !important; /* Forțăm opacitatea maximă */
 }
 
-button:hover {
+.button-link:hover {
     background: #4A4A4A;
     color: #F4F1EE;
 }
 
-#responseMessage {
-    margin-top: 25px;
-    font-size: 0.9rem;
-    color: #4A4A4A;
-    display: none;
-    font-style: italic;
-    letter-spacing: 1px;
-}
-
-/* --- AJUSTĂRI RESPONSIVE --- */
+/* Responsivitate */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.2rem;
-        letter-spacing: 5px;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .grid {
-        grid-template-columns: 1fr; /* O singură coloană pe mobil */
-        gap: 20px;
-    }
+    .grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2rem; letter-spacing: 5px; }
+    nav { flex-direction: column; gap: 15px; }
 }
