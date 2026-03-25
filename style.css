@@ -1,3 +1,4 @@
+/* RESET ȘI SETĂRI GENERALE */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 * {
@@ -8,7 +9,7 @@
 
 body {
     font-family: 'Tenor Sans', serif;
-    background-color: #E6E1DC; /* Bej deschis */
+    background-color: #EAE5E0; /* Culoarea bej a fundalului */
     color: #4A4A4A;
 }
 
@@ -17,118 +18,136 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 10%;
+    padding: 2.5rem 10%;
 }
 
-.logo { font-size: 1.5rem; letter-spacing: 7px; text-transform: uppercase; }
+.logo {
+    font-size: 1.5rem;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+}
 
-nav ul { display: flex; list-style: none; gap: 20px; }
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
 
-nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
+nav ul li a {
+    text-decoration: none;
+    color: #4A4A4A;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
 /* HERO */
-.hero, .hero-simple { text-align: center; padding: 60px 20px; }
+.hero-simple {
+    text-align: center;
+    padding: 70px 0;
+}
 
-.hero h1 { font-size: 3rem; letter-spacing: 5px; margin-bottom: 10px; }
+.hero-simple h1 {
+    font-size: 3.5rem;
+    letter-spacing: 15px;
+    font-weight: normal;
+}
 
-/* GRILA CATEGORII (CELE 4 FERESTRE ALBE) */
-.featured-grid, .arrival-style-grid {
+/* GRILA CATEGORII (CELE 4 FERESTRE) */
+.arrival-style-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 pe rând */
+    grid-template-columns: repeat(2, 1fr); /* 2 pe rând */
     gap: 30px;
-    padding: 40px 10%;
+    padding: 0 10% 100px 10%;
     max-width: 1300px;
     margin: 0 auto;
 }
 
-/* STILUL FERESTREI ALBE */
-.featured-card, .arrival-card {
-    background-color: #FDFBFA; /* Alb curat */
-    padding: 100px 30px;
+.arrival-card {
+    background-color: #F8F5F2; /* Culoarea albă a ferestrei */
+    padding: 100px 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid #D6D1CC;
     text-align: center;
+    min-height: 400px;
 }
 
-h2 { font-size: 1.8rem; letter-spacing: 4px; margin-bottom: 30px; font-weight: normal; }
+.arrival-card h2 {
+    font-size: 2rem;
+    letter-spacing: 6px;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
 
-/* BUTONUL SHOP */
 .shop-btn {
     border: 1px solid #4A4A4A;
-    padding: 12px 35px;
+    padding: 12px 45px;
     text-decoration: none;
     color: #4A4A4A;
     font-size: 0.7rem;
     letter-spacing: 2px;
-    transition: 0.3s ease;
 }
 
-.shop-btn:hover {
-    background-color: #4A4A4A;
-    color: #FDFBFA;
-}
-
-/* --- SECȚIUNEA DE PRODUSE (IMAGINI ȘI PREȚURI) --- */
-
+/* CATALOG PRODUSE (ROCHII) */
 .product-section {
     padding: 100px 10%;
-    background-color: #E6E1DC;
-    text-align: center;
+    background-color: #F8F5F2; /* Fundal diferit pentru catalog */
+    text-align: left; /* Aliniem textul la stânga pentru aspect curat */
 }
 
 .catalog-title {
-    font-size: 1.5rem;
-    letter-spacing: 8px;
-    margin-bottom: 60px;
+    text-align: center;
+    letter-spacing: 10px;
+    margin-bottom: 70px;
+    font-weight: normal;
     text-transform: uppercase;
 }
 
-/* Grila care pune produsele pe 3 coloane */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(3, 1fr); /* 3 pe rând pe ecran mare */
+    gap: 50px;
 }
 
 .product-card {
-    text-align: left; /* Textul sub poză să fie aliniat la stânga */
+    text-align: left;
 }
 
 .product-card img {
     width: 100%;
     height: auto;
+    margin-bottom: 25px;
     display: block;
-    margin-bottom: 20px;
-    transition: transform 0.3s ease;
-}
-
-/* Efect de mărire ușoară când pui mouse-ul pe poză */
-.product-card img:hover {
-    transform: scale(1.02);
 }
 
 .product-card h4 {
-    font-size: 0.85rem;
-    letter-spacing: 2px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
     margin-bottom: 10px;
     font-weight: normal;
+    text-transform: uppercase;
 }
 
-.product-card p {
-    font-size: 0.9rem;
-    color: #777;
+/* Stil pentru descrierile scurte de sub rochii */
+.product-card .description {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+.product-card .price {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
 }
 
 /* MOBIL */
 @media (max-width: 768px) {
-    .featured-grid, .arrival-style-grid, .product-grid { 
-        grid-template-columns: 1fr; /* Pe telefon toate devin o singură coloană */
+    .arrival-style-grid, .product-grid {
+        grid-template-columns: 1fr; /* Totul pe o singură coloană pe telefon */
     }
 }
-
-footer { padding: 50px; text-align: center; font-size: 0.8rem; color: #888; }
