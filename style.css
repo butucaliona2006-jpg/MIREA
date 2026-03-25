@@ -107,3 +107,49 @@ p {
     h1 { font-size: 2rem; letter-spacing: 5px; }
     nav { flex-direction: column; gap: 15px; }
 }
+/* --- STILURI PENTRU PAGINA DE CONTACT (COMBINAT) --- */
+
+/* Zona cu email și instagram */
+.contact-details {
+    margin-bottom: 40px;
+}
+
+.contact-details p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    font-style: normal; /* Scoatem stilul italic pentru link-uri */
+    letter-spacing: 1px;
+}
+
+.contact-details a {
+    text-transform: lowercase; /* Emailul și user-ul rămân cu litere mici */
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.contact-details a:hover {
+    border-bottom: 1px solid #4A4A4A;
+    opacity: 1;
+}
+
+/* Containerul formularului */
+.form-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid #D6D1CC; /* O linie fină de separare între text și formular */
+}
+
+/* Ajustare pentru input-uri ca să fie la fel de lungi */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#responseMessage {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #4A4A4A;
+    font-style: italic;
+}
