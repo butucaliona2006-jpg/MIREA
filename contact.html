@@ -6,9 +6,7 @@
     <title>MIRÉA | Contact</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
     <nav>
         <div class="logo">MIRÉA</div>
         <ul>
@@ -21,19 +19,20 @@
     </nav>
 
     <header class="hero">
-    <h1>Contact</h1>
-    <p>Scrie-ne. Suntem aici pentru tine.</p>
+        <h1>Contact</h1>
+        <p>Scrie-ne. Suntem aici pentru tine.</p>
 
-    <p>Email: 
-        <a href="mailto:mirea@gmail.com">mirea@gmail.com</a>
-    </p>
+        <div class="form-container">
+            <form id="contactForm">
+                <input type="text" id="nume" placeholder="NUME COMPLET" required>
+                <input type="email" id="email" placeholder="ADRESA EMAIL" required>
+                <textarea id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
+                <button type="submit">TRIMITE</button>
+            </form>
+            <div id="responseMessage"></div>
+        </div>
+    </header>
 
-    <p>Instagram: 
-        <a href="https://instagram.com/mirea.store" target="_blank">
-            @mirea.store
-        </a>
-    </p>
-</header>
-
+    <script src="script.js"></script>
 </body>
 </html>
