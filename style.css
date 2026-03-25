@@ -153,3 +153,54 @@ form {
     color: #4A4A4A;
     font-style: italic;
 }
+/* --- STIL CATALOG PRODUSE MIRÉA --- */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    text-align: left;
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.product-image-placeholder {
+    width: 100%;
+    height: 400px;
+    background-color: #E6E1DC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: #8C8C8C;
+    border: 1px solid #D6D1CC;
+}
+
+.product-card h4 {
+    margin: 15px 0 5px 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.product-card p {
+    font-size: 0.8rem;
+    color: #777;
+    margin: 0;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.product-card .price {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #4A4A4A;
+    letter-spacing: 1px;
+}
