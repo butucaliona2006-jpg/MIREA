@@ -3,6 +3,10 @@
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
+html {
+    scroll-behavior: smooth; /* Permite scroll-ul lin către secțiuni */
+}
+
 body {
     margin: 0;
     font-family: 'Tenor Sans', serif;
@@ -29,14 +33,14 @@ nav {
     text-transform: uppercase;
 }
 
-ul {
+nav ul {
     display: flex;
     list-style: none;
     gap: 25px;
     padding: 0;
 }
 
-a {
+nav a {
     text-decoration: none;
     color: #4A4A4A;
     font-size: 0.75rem;
@@ -45,101 +49,85 @@ a {
     transition: all 0.3s ease;
 }
 
-a:hover {
+nav a:hover {
     opacity: 0.6;
 }
 
 /* ==========================================================================
-   3. SECȚIUNEA HERO ȘI TITLURI
+   3. SECȚIUNEA CATEGORII (CELE 4 BUTOANE)
    ========================================================================== */
-.hero {
-    padding: 8vh 10%;
+.categories-selection {
+    background-color: #f4f1ee;
+    padding: 60px 10%;
 }
 
-h1 {
-    font-size: 3rem;
-    font-weight: 200;
-    letter-spacing: 12px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-}
-
-p {
-    font-size: 1rem;
-    font-style: italic;
-    color: #777;
-}
-
-/* ==========================================================================
-   4. COMPONENTE REUTILIZABILE (GRID & BUTOANE)
-   ========================================================================== */
-/* Grid Categorii (Pagina Principală / Colecție) */
-.grid {
+.category-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    padding: 0 10% 50px 10%;
+    grid-template-columns: repeat(2, 1fr); /* 2 pe rând pe desktop */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.item {
-    background: #F4F1EE;
-    height: 350px;
+.category-item {
+    background: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid #eaeaea;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: transform 0.4s ease;
+    transition: all 0.4s ease;
 }
 
-.item:hover {
+.category-item:hover {
+    border-color: #4A4A4A;
     transform: translateY(-5px);
+    background-color: #fcfcfc;
 }
 
-/* Stil Butoane Universale */
-.button-link {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 25px;
-    border: 1px solid #4A4A4A;
-    color: #4A4A4A;
-    font-size: 0.65rem;
-    letter-spacing: 2px;
-    transition: all 0.3s ease;
-    opacity: 1 !important;
-    background: transparent;
-    cursor: pointer;
+.category-item span {
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
 }
 
-.button-link:hover {
-    background: #4A4A4A;
-    color: #F4F1EE;
+.category-item small {
+    color: #888;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+/* Separator fin între butoane și catalog */
+.separator {
+    border: 0;
+    height: 1px;
+    background: #D6D1CC;
+    margin: 40px 15%;
 }
 
 /* ==========================================================================
-   5. CATALOG PRODUSE (PAGINA COLECȚIE)
+   4. CATALOG PRODUSE
    ========================================================================== */
 .product-section {
-    padding: 100px 10%;
-    background: #F4F1EE;
-    margin-top: 50px;
+    padding: 60px 10%;
+    background-color: #E6E1DC;
 }
 
-.darker-bg {
-    background: #E6E1DC;
-}
-
-.product-section h2 {
+.section-title {
     letter-spacing: 5px;
     text-transform: uppercase;
-    margin-bottom: 50px;
+    font-size: 1.8rem;
     font-weight: 300;
+    margin-bottom: 50px;
 }
 
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     text-align: left;
 }
@@ -147,156 +135,93 @@ p {
 .product-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 15px;
+    background: transparent;
 }
 
-.product-image-placeholder {
+.product-img {
     width: 100%;
-    height: 400px;
-    background-color: #E6E1DC;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    color: #8C8C8C;
+    height: 450px;
+    object-fit: cover;
+    object-position: center;
     border: 1px solid #D6D1CC;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.02);
 }
 
 .product-card h4 {
-    margin: 15px 0 5px 0;
+    margin: 10px 0 5px 0;
     font-weight: 400;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     letter-spacing: 1px;
 }
 
 .product-card p {
-    font-size: 0.8rem;
-    color: #777;
+    font-size: 0.85rem;
+    color: #666;
     margin: 0;
     font-style: italic;
 }
 
 .product-card .price {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: bold;
-    margin-top: 10px;
-    color: #4A4A4A;
-    letter-spacing: 1px;
+    color: #333;
+    margin-top: 5px;
 }
 
 /* ==========================================================================
-   6. PAGINA DE CONTACT
-   ========================================================================== */
-.contact-details {
-    margin-bottom: 40px;
-}
-
-.contact-details p {
-    font-size: 0.9rem;
-    margin: 10px 0;
-    font-style: normal;
-    letter-spacing: 1px;
-}
-
-.contact-details a {
-    text-transform: lowercase;
-    border-bottom: 1px solid transparent;
-}
-
-.contact-details a:hover {
-    border-bottom: 1px solid #4A4A4A;
-    opacity: 1;
-}
-
-.form-container {
-    max-width: 450px;
-    margin: 0 auto;
-    padding-top: 30px;
-    border-top: 1px solid #D6D1CC;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-input, textarea {
-    padding: 12px;
-    border: 1px solid #D6D1CC;
-    background: #F4F1EE;
-    font-family: inherit;
-    font-size: 0.8rem;
-    outline: none;
-}
-
-input:focus, textarea:focus {
-    border-color: #4A4A4A;
-}
-
-#responseMessage {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: #4A4A4A;
-    font-style: italic;
-}
-
-/* ==========================================================================
-   7. RESPONSIVITATE (ADAPTARE MOBIL)
+   5. RESPONSIVITATE (PENTRU TELEFON)
    ========================================================================== */
 @media (max-width: 768px) {
-    .grid { 
-        grid-template-columns: 1fr; 
-    }
-    
-    h1 { 
-        font-size: 2rem; 
-        letter-spacing: 5px; 
-    }
-    
-    nav { 
-        flex-direction: column; 
-        gap: 15px; 
-    }
-    
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-}
-/* REGLAJE PENTRU TELEFON (MOBILE) */
-@media (max-width: 768px) {
-    /* Transformăm meniul într-o listă verticală */
-    nav ul {
+    nav {
         flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 0;
-    }
-
-    /* Forțăm catalogul să afișeze o singură poză pe rând, pe tot latul ecranului */
-    .product-grid {
-        grid-template-columns: 1fr !important; /* O singură coloană */
         gap: 20px;
-        padding: 10px;
+        padding: 2rem 5%;
     }
 
-    /* Ajustăm mărimea cardului de produs */
-    .product-card {
-        width: 100%;
-        margin-bottom: 30px;
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    /* Ne asigurăm că imaginile nu depășesc lățimea ecranului */
-    .product-img {
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-    }
-
-    /* Micșorăm textul titlurilor pe mobil ca să nu ocupe prea mult loc */
     .hero h1 {
         font-size: 2rem;
+        letter-spacing: 6px;
     }
+
+    .category-grid {
+        grid-template-columns: 1fr; /* 1 buton pe rând pe mobil */
+    }
+
+    .category-item {
+        padding: 50px 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr; /* 1 produs pe rând pe mobil */
+    }
+
+    .product-img {
+        height: 400px; /* Puțin mai mic pe mobil pentru vizibilitate */
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+}
+
+/* ==========================================================================
+   6. FOOTER
+   ========================================================================== */
+footer {
+    padding: 50px 0;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    color: #999;
 }
