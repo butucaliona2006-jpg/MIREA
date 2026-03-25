@@ -265,3 +265,38 @@ input:focus, textarea:focus {
         grid-template-columns: 1fr;
     }
 }
+/* REGLAJE PENTRU TELEFON (MOBILE) */
+@media (max-width: 768px) {
+    /* Transformăm meniul într-o listă verticală */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    /* Forțăm catalogul să afișeze o singură poză pe rând, pe tot latul ecranului */
+    .product-grid {
+        grid-template-columns: 1fr !important; /* O singură coloană */
+        gap: 20px;
+        padding: 10px;
+    }
+
+    /* Ajustăm mărimea cardului de produs */
+    .product-card {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    /* Ne asigurăm că imaginile nu depășesc lățimea ecranului */
+    .product-img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Micșorăm textul titlurilor pe mobil ca să nu ocupe prea mult loc */
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
