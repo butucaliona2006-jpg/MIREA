@@ -1,4 +1,6 @@
-/* Import font elegant */
+/* ==========================================================================
+   1. SETĂRI GENERALE ȘI TIPOGRAFIE
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 body {
@@ -8,8 +10,12 @@ body {
     color: #4A4A4A;
     text-align: center;
     overflow-x: hidden;
+    line-height: 1.6;
 }
 
+/* ==========================================================================
+   2. NAVIGARE (HEADER)
+   ========================================================================== */
 nav {
     display: flex;
     justify-content: space-between;
@@ -27,6 +33,7 @@ ul {
     display: flex;
     list-style: none;
     gap: 25px;
+    padding: 0;
 }
 
 a {
@@ -35,13 +42,16 @@ a {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    transition: opacity 0.3s;
+    transition: all 0.3s ease;
 }
 
 a:hover {
     opacity: 0.6;
 }
 
+/* ==========================================================================
+   3. SECȚIUNEA HERO ȘI TITLURI
+   ========================================================================== */
 .hero {
     padding: 8vh 10%;
 }
@@ -51,6 +61,7 @@ h1 {
     font-weight: 200;
     letter-spacing: 12px;
     margin-bottom: 20px;
+    text-transform: uppercase;
 }
 
 p {
@@ -59,12 +70,15 @@ p {
     color: #777;
 }
 
-/* Grid-ul Estetic */
+/* ==========================================================================
+   4. COMPONENTE REUTILIZABILE (GRID & BUTOANE)
+   ========================================================================== */
+/* Grid Categorii (Pagina Principală / Colecție) */
 .grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    padding: 0 10%;
+    padding: 0 10% 50px 10%;
 }
 
 .item {
@@ -83,7 +97,7 @@ p {
     transform: translateY(-5px);
 }
 
-/* Stil Butoane */
+/* Stil Butoane Universale */
 .button-link {
     display: inline-block;
     margin-top: 20px;
@@ -93,7 +107,9 @@ p {
     font-size: 0.65rem;
     letter-spacing: 2px;
     transition: all 0.3s ease;
-    opacity: 1 !important; /* Forțăm opacitatea maximă */
+    opacity: 1 !important;
+    background: transparent;
+    cursor: pointer;
 }
 
 .button-link:hover {
@@ -101,59 +117,25 @@ p {
     color: #F4F1EE;
 }
 
-/* Responsivitate */
-@media (max-width: 768px) {
-    .grid { grid-template-columns: 1fr; }
-    h1 { font-size: 2rem; letter-spacing: 5px; }
-    nav { flex-direction: column; gap: 15px; }
-}
-/* --- STILURI PENTRU PAGINA DE CONTACT (COMBINAT) --- */
-
-/* Zona cu email și instagram */
-.contact-details {
-    margin-bottom: 40px;
+/* ==========================================================================
+   5. CATALOG PRODUSE (PAGINA COLECȚIE)
+   ========================================================================== */
+.product-section {
+    padding: 100px 10%;
+    background: #F4F1EE;
+    margin-top: 50px;
 }
 
-.contact-details p {
-    font-size: 0.9rem;
-    margin: 10px 0;
-    font-style: normal; /* Scoatem stilul italic pentru link-uri */
-    letter-spacing: 1px;
+.darker-bg {
+    background: #E6E1DC;
 }
 
-.contact-details a {
-    text-transform: lowercase; /* Emailul și user-ul rămân cu litere mici */
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
+.product-section h2 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    font-weight: 300;
 }
-
-.contact-details a:hover {
-    border-bottom: 1px solid #4A4A4A;
-    opacity: 1;
-}
-
-/* Containerul formularului */
-.form-container {
-    max-width: 450px;
-    margin: 0 auto;
-    padding-top: 30px;
-    border-top: 1px solid #D6D1CC; /* O linie fină de separare între text și formular */
-}
-
-/* Ajustare pentru input-uri ca să fie la fel de lungi */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#responseMessage {
-    margin-top: 20px;
-    font-size: 0.8rem;
-    color: #4A4A4A;
-    font-style: italic;
-}
-/* --- STIL CATALOG PRODUSE MIRÉA --- */
 
 .product-grid {
     display: grid;
@@ -193,7 +175,6 @@ form {
     font-size: 0.8rem;
     color: #777;
     margin: 0;
-    line-height: 1.5;
     font-style: italic;
 }
 
@@ -203,4 +184,84 @@ form {
     margin-top: 10px;
     color: #4A4A4A;
     letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   6. PAGINA DE CONTACT
+   ========================================================================== */
+.contact-details {
+    margin-bottom: 40px;
+}
+
+.contact-details p {
+    font-size: 0.9rem;
+    margin: 10px 0;
+    font-style: normal;
+    letter-spacing: 1px;
+}
+
+.contact-details a {
+    text-transform: lowercase;
+    border-bottom: 1px solid transparent;
+}
+
+.contact-details a:hover {
+    border-bottom: 1px solid #4A4A4A;
+    opacity: 1;
+}
+
+.form-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid #D6D1CC;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    border: 1px solid #D6D1CC;
+    background: #F4F1EE;
+    font-family: inherit;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+input:focus, textarea:focus {
+    border-color: #4A4A4A;
+}
+
+#responseMessage {
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: #4A4A4A;
+    font-style: italic;
+}
+
+/* ==========================================================================
+   7. RESPONSIVITATE (ADAPTARE MOBIL)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .grid { 
+        grid-template-columns: 1fr; 
+    }
+    
+    h1 { 
+        font-size: 2rem; 
+        letter-spacing: 5px; 
+    }
+    
+    nav { 
+        flex-direction: column; 
+        gap: 15px; 
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
 }
