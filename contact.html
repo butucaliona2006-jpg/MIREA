@@ -19,20 +19,25 @@
     </nav>
 
     <header class="hero">
-        <h1>Contact</h1>
-        <p>Scrie-ne. Suntem aici pentru tine.</p>
+    <h1>Contact</h1>
+    <p>Scrie-ne. Suntem aici pentru tine.</p>
 
-        <div class="form-container">
-            <form id="contactForm">
-                <input type="text" id="nume" placeholder="NUME COMPLET" required>
-                <input type="email" id="email" placeholder="ADRESA EMAIL" required>
-                <textarea id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
-                <button type="submit">TRIMITE</button>
-            </form>
-            <div id="responseMessage"></div>
-        </div>
-    </header>
+    <div class="contact-details">
+        <p>Email: <a href="mailto:mirea@gmail.com">mirea@gmail.com</a></p>
+        <p>Instagram: <a href="https://instagram.com/mirea.store" target="_blank">@mirea.store</a></p>
+    </div>
 
-    <script src="script.js"></script>
+    <div class="form-container">
+        <form id="contactForm">
+            <input type="text" id="nume" placeholder="NUME COMPLET" required>
+            <input type="email" id="email" placeholder="ADRESA EMAIL" required>
+            <textarea id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
+            <button type="submit" id="submitBtn">TRIMITE</button>
+        </form>
+        <div id="responseMessage"></div>
+    </div>
+</header>
+
+<script src="script.js"></script>
 </body>
 </html>
