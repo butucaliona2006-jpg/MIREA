@@ -38,3 +38,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+// === FORMULAR CONTACT (AJAX + PHP) ===
+const form = document.getElementById('contactForm');
+
+if (form) {
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nume = document.getElementById('nume').value;
+        const email = document.getElementById('email').value;
+        const mesaj = document.getElementById('mesaj').value;
+
+        fetch('contact.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: `nume=${nume}&email=${email}&mesaj=${mesaj}`
+        })
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('responseMessage').innerHTML = data;
+            form.reset();
+        })
+        .catch(() => {
+            document.getElementById('responseMessage').innerHTML = "Eroare la trimitere!";
+        });
+    });
+}
