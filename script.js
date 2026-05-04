@@ -1,68 +1,98 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Smooth Scroll pentru ancore (Ex: butonul DISCOVER)
+    // 1. Smooth Scroll
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
+                targetElement.scrollIntoView({ behavior: 'smooth' });
             }
         });
     });
 
-    // 2. Efect de Fade-in la Scroll (Efect vizual Lab 3)
-    const observerOptions = {
-        threshold: 0.1
-    };
+    // 2. Coș de Cumpărături (Logica Magazin)
+    let cart = [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const totalPriceElement = document.getElementById('total-price');
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
+    document.querySelectorAll('.add-to-cart').forEach(button => {
+        button.addEventListener('click', () => {
+            const name = button.getAttribute('data-name');
+            const price = parseInt(button.getAttribute('data-price'));
+            
+            cart.push({ name, price });
+            renderCart();
         });
-    }, observerOptions);
-
-    // Aplicăm efectul pe hero și pe itemele din grid
-    document.querySelectorAll('.hero, .item').forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(30px)';
-        el.style.transition = 'all 0.8s ease-out';
-        observer.observe(el);
     });
 
+    function renderCart() {
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = '<p style="text-align: center; opacity: 0.5;">Coșul este gol.</p>';
+            totalPriceElement.innerText = '0';
+            return;
+        }
+
+        cartItemsContainer.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            total += item.price;
+            const itemDiv = document.createElement('div');
+            itemDiv.className = 'cart-item';
+            itemDiv.innerHTML = `<span>${item.name}</span> <span>${item.price} MDL</span>`;
+            cartItemsContainer.appendChild(itemDiv);
+        });
+
+        totalPriceElement.innerText = total;
+    }
+
+    // 3. Finalizare Comandă (AJAX)
+    const checkoutBtn = document.getElementById('checkout-btn');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert("Adăugați cel puțin un produs în coș!");
+                return;
+            }
+
+            fetch('comanda.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ produse: cart })
+            })
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('order-status').innerHTML = data;
+                cart = []; // Golim coșul după succes
+                renderCart();
+            })
+            .catch(() => {
+                document.getElementById('order-status').innerHTML = "Eroare la procesarea comenzii.";
+            });
+        });
+    }
+
+    // 4. Formular Contact
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new URLSearchParams();
+            formData.append('nume', document.getElementById('nume').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('mesaj', document.getElementById('mesaj').value);
+
+            fetch('contact.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('responseMessage').innerHTML = data;
+                contactForm.reset();
+            });
+        });
+    }
 });
-// === FORMULAR CONTACT (AJAX + PHP) ===
-const form = document.getElementById('contactForm');
-
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-
-        const nume = document.getElementById('nume').value;
-        const email = document.getElementById('email').value;
-        const mesaj = document.getElementById('mesaj').value;
-
-        fetch('contact.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: `nume=${nume}&email=${email}&mesaj=${mesaj}`
-        })
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('responseMessage').innerHTML = data;
-            form.reset();
-        })
-        .catch(() => {
-            document.getElementById('responseMessage').innerHTML = "Eroare la trimitere!";
-        });
-    });
-}
