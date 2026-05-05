@@ -107,3 +107,18 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
 }
 
 footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
+/* Uniformizarea dimensiunilor imaginilor de produs */
+.product-card img {
+    width: 100%;           /* Ocupă toată lățimea cardului */
+    height: 400px;         /* Aici poți regla înălțimea dorită (ex: 400px sau 450px) */
+    object-fit: cover;     /* Esențial: taie din imagine pentru a umple spațiul fără să o deformeze */
+    object-position: center; /* Centrează imaginea în cadru */
+    display: block;
+    margin-bottom: 15px;   /* Spațiu între poză și titlu */
+}
+
+/* Opțional: Adăugăm un efect fin la trecerea cu mouse-ul */
+.product-card img:hover {
+    opacity: 0.9;
+    transition: 0.3s;
+}
