@@ -268,3 +268,22 @@ footer {
     font-size: 0.8rem; 
     opacity: 0.6; 
 }
+/* --- CENTRARE TITLURI CATEGORII (COLECTIE.HTML) --- */
+.product-section h2, 
+.product-section h3,
+.catalog-title {
+    text-align: center;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+/* Dacă ai link-uri de tip "EXPLOREAZĂ" sub titluri, le centrăm și pe ele */
+.product-section a {
+    display: block;
+    text-align: center;
+    margin: 0 auto 40px auto;
+}
