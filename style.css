@@ -122,3 +122,62 @@ footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
     opacity: 0.9;
     transition: 0.3s;
 }
+/* Layout-ul Lookbook */
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 40px 5%;
+}
+
+/* Prima imagine ocupă două coloane pe ecrane mari */
+@media (min-width: 900px) {
+    .item.featured {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+}
+
+.item {
+    position: relative;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    height: 400px; /* Înălțime fixă pentru consistență */
+}
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Imaginea va umple containerul fără să se deformeze */
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Efectul de text care apare la hover */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.overlay h3 {
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.item:hover img {
+    transform: scale(1.08);
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
