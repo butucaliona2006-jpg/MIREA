@@ -7,6 +7,7 @@ body {
     background-color: #EAE5E0;
     color: #4A4A4A;
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 /* --- NAVIGAȚIE --- */
@@ -20,7 +21,7 @@ nav {
 nav ul { display: flex; list-style: none; gap: 20px; }
 nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
 
-/* --- PAGINA ACASĂ (INDEX.HTML) --- */
+/* --- PAGINA ACASĂ (INDEX) --- */
 .hero-main { text-align: center; padding: 60px 10% 20px; }
 .hero-main h1 { font-size: 3rem; letter-spacing: 10px; text-transform: uppercase; }
 
@@ -33,136 +34,80 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
 }
 .white-box {
     background: #FDFBFA;
-    padding: 100px 40px;
+    padding: 80px 20px;
     flex: 1;
-    min-width: 300px;
+    min-width: 280px;
     text-align: center;
     border: 1px solid #D6D1CC;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-transform: uppercase;
 }
 
-/* --- CATEGORII COLECȚIE (BUTOANELE DE SUS) --- */
-.arrival-style-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px 10% 40px;
-    flex-wrap: wrap;
-}
-.arrival-card {
-    background: #FDFBFA;
-    padding: 40px 20px;
-    flex: 1;
-    min-width: 200px;
-    text-align: center; /* Centrează textul din butoanele de sus */
-    border: 1px solid #D6D1CC;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* --- CATALOG PRODUSE (FORȚARE 3 PE RÂND ȘI CENTRARE) --- */
-.catalog-title { 
-    text-align: center; 
-    padding: 60px 0 20px; 
-    letter-spacing: 5px; 
-    text-transform: uppercase; 
-    font-size: 1.2rem; 
-}
+/* --- CATALOG PRODUSE (FORȚARE 3 PE RÂND) --- */
+.catalog-title { text-align: center; padding: 40px 0; letter-spacing: 5px; text-transform: uppercase; }
 
 .product-grid {
     display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important; 
-    gap: 30px;
-    padding: 20px 10% 60px;
-    max-width: 1400px;
+    grid-template-columns: repeat(3, 1fr) !important; /* EXACT 3 PE RÂND */
+    gap: 40px 20px;
+    padding: 20px 10% 80px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
+/* CARDUL DE PRODUS - REPARAT */
 .product-card {
-    text-align: center; /* Centrează textul orizontal */
-    background: #FDFBFA;
-    padding: 25px;
-    border: 1px solid #D6D1CC;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrează elementele pe axa orizontală */
-    justify-content: flex-start;
+    align-items: center; /* CENTREAZĂ TOTUL ORIZONTAL */
+    text-align: center;
+    background: #FDFBFA;
+    padding: 20px;
+    border: 1px solid #D6D1CC;
 }
 
-.product-card img { 
-    width: 100%; 
-    aspect-ratio: 3/4; 
-    object-fit: cover; 
-    margin-bottom: 20px; 
-}
-
-.product-card h4 {
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-}
-
-.product-card .description {
-    font-size: 0.8rem;
+.product-card img {
+    width: 100%;
+    height: 350px; /* ÎNĂLȚIME FIXĂ PENTRU ALINIERE PERFECTĂ */
+    object-fit: cover; /* NU DEFORMEAZĂ IMAGINEA */
     margin-bottom: 15px;
-    min-height: 40px; /* Ajută la alinierea prețurilor dacă descrierile au lungimi diferite */
 }
 
-.product-card .price {
-    font-weight: bold;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+.product-card h4, .product-card p, .product-card span {
+    width: 100%;
+    margin: 5px 0;
+    display: block;
 }
 
-/* --- LOOKBOOK (CENTRĂRI) --- */
+/* --- LOOKBOOK --- */
 .lookbook-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 20px;
     padding: 40px 10%;
-    max-width: 1400px;
-    margin: 0 auto;
 }
-.lookbook-grid .item {
-    background: #FDFBFA;
-    padding: 15px;
-    border: 1px solid #D6D1CC;
-    text-align: center;
-}
-.lookbook-grid .look-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
-}
+.lookbook-grid img { width: 100%; height: 400px; object-fit: cover; }
 
 /* --- BUTOANE --- */
-.btn, .shop-btn, .add-to-cart {
+.btn, .add-to-cart, .shop-btn {
     display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
     border: 1px solid #4A4A4A;
-    padding: 12px 25px;
-    background: transparent;
+    background: none;
     color: #4A4A4A;
-    cursor: pointer;
     text-transform: uppercase;
     font-size: 0.7rem;
+    cursor: pointer;
     text-decoration: none;
     transition: 0.3s;
-    width: fit-content; /* Butonul nu se întinde pe tot rândul */
 }
-.btn:hover, .shop-btn:hover, .add-to-cart:hover { background: #4A4A4A; color: #fff; }
+.btn:hover, .add-to-cart:hover { background: #4A4A4A; color: white; }
 
-/* --- RESPONSIVITATE --- */
-@media (max-width: 1024px) {
-    .product-grid, .lookbook-grid { grid-template-columns: repeat(2, 1fr) !important; }
+/* --- REPARARE MOBIL --- */
+@media (max-width: 900px) {
+    .product-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
-@media (max-width: 700px) {
-    .product-grid, .lookbook-grid { grid-template-columns: 1fr !important; }
+@media (max-width: 600px) {
+    .product-grid { grid-template-columns: 1fr !important; }
+    .main-grid { flex-direction: column; }
 }
