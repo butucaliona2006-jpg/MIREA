@@ -177,3 +177,30 @@ footer, .footer-content, footer p {
     flex-wrap: wrap;
     gap: 20px;
 }
+/* Centrarea textului TOTAL și a butonului de finalizare */
+.cart-summary, 
+div[style*="text-align: left"] { 
+    text-align: center !important; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+#total-price, 
+.cart-summary h3,
+.cart-summary p {
+    text-align: center !important;
+    width: 100%;
+}
+
+/* Asigură-te că butonul de finalizare stă pe mijloc */
+.checkout-btn, 
+button[onclick*="checkout"],
+.cart-summary button {
+    margin: 20px auto !important;
+    display: block !important;
+    width: fit-content;
+}
