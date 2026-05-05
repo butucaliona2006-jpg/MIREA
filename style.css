@@ -1,3 +1,4 @@
+/* --- FUNDAMENTE ȘI TIPOGRAFIE --- */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 * {
@@ -13,6 +14,7 @@ body {
     line-height: 1.6;
 }
 
+/* --- NAVIGAȚIE --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -20,231 +22,158 @@ nav {
     padding: 2rem 10%;
 }
 
-.logo { font-size: 1.5rem; letter-spacing: 7px; }
-nav ul { display: flex; list-style: none; gap: 20px; }
-nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
+.logo { 
+    font-size: 1.5rem; 
+    letter-spacing: 7px; 
+    text-transform: uppercase;
+}
 
-.hero-main, .hero-simple, .hero {
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
+}
+
+nav a { 
+    text-decoration: none; 
+    color: #4A4A4A; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+    transition: 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+/* --- HEADER & HERO --- */
+.hero {
     text-align: center;
     padding: 80px 20px;
 }
 
-.container {
-    padding: 0 10% 80px 10%;
+.hero h1 {
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* --- LOOKBOOK GRID (3 COLOANE) --- */
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Forțează fix 3 coloane */
+    gap: 20px;
+    padding: 40px 10%;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-.main-grid, .arrival-style-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-
-.white-box, .arrival-card {
+.item {
+    position: relative;
+    overflow: hidden;
     background-color: #FDFBFA;
-    padding: 100px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    height: 350px; /* Înălțime redusă pentru a nu părea prea mari */
     border: 1px solid #D6D1CC;
 }
 
-.shop-btn, .btn {
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Previne deformarea pozelor */
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --- EFECTE HOVER --- */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.item:hover img {
+    transform: scale(1.05);
+}
+
+.overlay h3 {
+    color: white;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+/* --- ALTE PAGINI (CATALOG & PRODUS) --- */
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+}
+
+.product-card img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+/* --- BUTOANE --- */
+.btn, .add-to-cart {
     border: 1px solid #4A4A4A;
     padding: 12px 35px;
     text-decoration: none;
     color: #4A4A4A;
     font-size: 0.7rem;
     letter-spacing: 2px;
-    transition: 0.3s;
+    text-transform: uppercase;
     background: none;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-.shop-btn:hover, .btn:hover {
+.btn:hover, .add-to-cart:hover {
     background-color: #4A4A4A;
     color: #fff;
 }
 
-/* CATALOG */
-.product-section { padding: 100px 10%; background-color: #FDFBFA; }
-.catalog-title { text-align: center; margin-bottom: 50px; letter-spacing: 3px; }
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.product-card { text-align: center; }
-.product-card img { width: 100%; height: auto; margin-bottom: 20px; }
-.description { font-size: 0.8rem; color: #777; margin: 10px 0; min-height: 40px; }
-.price { font-weight: bold; margin-bottom: 15px; }
-
-/* BUTON ADAUGA IN COS */
-.add-to-cart {
-    width: 100%;
-    padding: 10px;
-    background: transparent;
-    border: 1px solid #4A4A4A;
-    font-family: 'Tenor Sans', sans-serif;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.add-to-cart:hover { background: #4A4A4A; color: white; }
-
-/* COS CUMPARATURI */
-#shopping-cart { margin-top: 50px; border-top: 1px solid #D6D1CC; padding-top: 80px; }
-.cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 15px 0;
-    border-bottom: 1px solid #D6D1CC;
-}
-.cart-total { text-align: right; margin-top: 30px; font-size: 1.2rem; }
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .main-grid, .arrival-style-grid, .product-grid { grid-template-columns: 1fr; }
-}
-
-footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
-/* Uniformizarea dimensiunilor imaginilor de produs */
-.product-card img {
-    width: 100%;           /* Ocupă toată lățimea cardului */
-    height: 400px;         /* Aici poți regla înălțimea dorită (ex: 400px sau 450px) */
-    object-fit: cover;     /* Esențial: taie din imagine pentru a umple spațiul fără să o deformeze */
-    object-position: center; /* Centrează imaginea în cadru */
-    display: block;
-    margin-bottom: 15px;   /* Spațiu între poză și titlu */
-}
-
-/* Opțional: Adăugăm un efect fin la trecerea cu mouse-ul */
-.product-card img:hover {
-    opacity: 0.9;
-    transition: 0.3s;
-}
-/* Layout-ul Lookbook */
-.lookbook-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-    padding: 40px 5%;
-}
-
-/* Prima imagine ocupă două coloane pe ecrane mari */
-@media (min-width: 900px) {
-    .item.featured {
-        grid-column: span 2;
-        grid-row: span 2;
-    }
-}
-
-.item {
-    position: relative;
-    overflow: hidden;
-    background-color: #f0f0f0;
-    height: 400px; /* Înălțime fixă pentru consistență */
-}
-
-.item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Imaginea va umple containerul fără să se deformeze */
-    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
-}
-
-/* Efectul de text care apare la hover */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.overlay h3 {
-    color: white;
-    font-weight: 300;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
-
-.item:hover img {
-    transform: scale(1.08);
-}
-
-.item:hover .overlay {
-    opacity: 1;
-}
-/* Containerul Lookbook setat pe 3 coloane */
-.lookbook-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Forțează fix 3 coloane pe rând */
-    gap: 15px;                             /* Spațiul dintre imagini */
-    padding: 40px 5%;                      /* Margini laterale pentru pagină */
-    max-width: 1200px;                     /* Limitează lățimea totală a grid-ului */
-    margin: 0 auto;                        /* Centrează grid-ul în pagină */
-}
-
-/* Stilul fiecărui element din grid */
-.item {
-    position: relative;
-    overflow: hidden;
-    background-color: #f9f9f9;
-    height: 500px; /* Înălțime fixă pentru a păstra rândurile perfect aliniate */
-}
-
-/* Eliminăm regula de "featured" dacă vrei toate pozele egale */
-/* Dacă vrei ca prima să nu mai fie mare, șterge regula .item.featured din codul anterior */
-
-.item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Esențial pentru ca pozele să nu fie deformate la 500px înălțime */
-    transition: transform 0.8s ease;
-}
-
-/* Overlay-ul cu textul (Look 01, etc.) */
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.1); /* Un fundal foarte discret */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-}
-
-.item:hover .overlay {
-    opacity: 1;
-}
-
-.overlay h3 {
-    color: white;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 300;
-}
-
-/* Ajustare pentru ecrane mici (tablete/telefoane) */
-@media (max-width: 900px) {
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
     .lookbook-grid {
         grid-template-columns: repeat(2, 1fr); /* 2 pe rând pe tabletă */
     }
 }
 
-@media (max-width: 600px) {
-    .lookbook-grid {
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .lookbook-grid, .product-grid {
         grid-template-columns: 1fr; /* 1 pe rând pe telefon */
     }
+    
+    .item {
+        height: 400px; /* Puțin mai înalte pe mobil pentru impact */
+    }
+}
+
+footer {
+    text-align: center;
+    padding: 50px;
+    font-size: 0.8rem;
+    opacity: 0.6;
 }
