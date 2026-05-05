@@ -58,19 +58,25 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     padding: 40px 20px;
     flex: 1;
     min-width: 200px;
-    text-align: center;
+    text-align: center; /* Centrează textul din butoanele de sus */
     border: 1px solid #D6D1CC;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-/* --- CATALOG PRODUSE (FORȚARE 3 PE RÂND) --- */
-.catalog-title { text-align: center; padding: 60px 0 20px; letter-spacing: 5px; text-transform: uppercase; font-size: 1.2rem; }
+/* --- CATALOG PRODUSE (FORȚARE 3 PE RÂND ȘI CENTRARE) --- */
+.catalog-title { 
+    text-align: center; 
+    padding: 60px 0 20px; 
+    letter-spacing: 5px; 
+    text-transform: uppercase; 
+    font-size: 1.2rem; 
+}
 
 .product-grid {
     display: grid !important;
-    /* Această linie forțează exact 3 coloane egale */
     grid-template-columns: repeat(3, 1fr) !important; 
     gap: 30px;
     padding: 20px 10% 60px;
@@ -79,22 +85,43 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
 }
 
 .product-card {
-    text-align: center;
+    text-align: center; /* Centrează textul orizontal */
     background: #FDFBFA;
-    padding: 20px;
+    padding: 25px;
     border: 1px solid #D6D1CC;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center; /* Centrează elementele pe axa orizontală */
+    justify-content: flex-start;
 }
+
 .product-card img { 
     width: 100%; 
     aspect-ratio: 3/4; 
     object-fit: cover; 
-    margin-bottom: 15px; 
+    margin-bottom: 20px; 
 }
 
-/* --- LOOKBOOK (RĂMÂNE PE 3 COLOANE) --- */
+.product-card h4 {
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.product-card .description {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
+    min-height: 40px; /* Ajută la alinierea prețurilor dacă descrierile au lungimi diferite */
+}
+
+.product-card .price {
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+/* --- LOOKBOOK (CENTRĂRI) --- */
 .lookbook-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -107,15 +134,18 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     background: #FDFBFA;
     padding: 15px;
     border: 1px solid #D6D1CC;
+    text-align: center;
 }
-.lookbook-grid img {
-    width: 100%;
-    aspect-ratio: 3/4;
-    object-fit: cover;
+.lookbook-grid .look-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
 }
 
-/* --- BUTOANE ȘI FORMULAR --- */
+/* --- BUTOANE --- */
 .btn, .shop-btn, .add-to-cart {
+    display: inline-block;
     border: 1px solid #4A4A4A;
     padding: 12px 25px;
     background: transparent;
@@ -125,16 +155,14 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     font-size: 0.7rem;
     text-decoration: none;
     transition: 0.3s;
-    margin-top: 10px;
+    width: fit-content; /* Butonul nu se întinde pe tot rândul */
 }
 .btn:hover, .shop-btn:hover, .add-to-cart:hover { background: #4A4A4A; color: #fff; }
 
 /* --- RESPONSIVITATE --- */
 @media (max-width: 1024px) {
-    /* Pe tabletă punem 2 pe rând ca să nu fie prea înghesuite */
     .product-grid, .lookbook-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 @media (max-width: 700px) {
-    /* Pe telefon punem 1 pe rând */
     .product-grid, .lookbook-grid { grid-template-columns: 1fr !important; }
 }
