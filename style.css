@@ -181,3 +181,70 @@ footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
 .item:hover .overlay {
     opacity: 1;
 }
+/* Containerul Lookbook setat pe 3 coloane */
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Forțează fix 3 coloane pe rând */
+    gap: 15px;                             /* Spațiul dintre imagini */
+    padding: 40px 5%;                      /* Margini laterale pentru pagină */
+    max-width: 1200px;                     /* Limitează lățimea totală a grid-ului */
+    margin: 0 auto;                        /* Centrează grid-ul în pagină */
+}
+
+/* Stilul fiecărui element din grid */
+.item {
+    position: relative;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    height: 500px; /* Înălțime fixă pentru a păstra rândurile perfect aliniate */
+}
+
+/* Eliminăm regula de "featured" dacă vrei toate pozele egale */
+/* Dacă vrei ca prima să nu mai fie mare, șterge regula .item.featured din codul anterior */
+
+.item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Esențial pentru ca pozele să nu fie deformate la 500px înălțime */
+    transition: transform 0.8s ease;
+}
+
+/* Overlay-ul cu textul (Look 01, etc.) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1); /* Un fundal foarte discret */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay h3 {
+    color: white;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+/* Ajustare pentru ecrane mici (tablete/telefoane) */
+@media (max-width: 900px) {
+    .lookbook-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 pe rând pe tabletă */
+    }
+}
+
+@media (max-width: 600px) {
+    .lookbook-grid {
+        grid-template-columns: 1fr; /* 1 pe rând pe telefon */
+    }
+}
