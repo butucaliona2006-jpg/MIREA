@@ -290,3 +290,46 @@ footer {
         padding: 20px 15%; 
     }
 }
+/* --- LOOKBOOK GRID OPTIMIZAT (IMAGINI COMPLETE ȘI MAI MARI) --- */
+.lookbook-grid {
+    display: grid;
+    /* Trecem de la 3 la 2 coloane pe desktop pentru a mări imaginile semnificativ */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 40px; /* Spațiu mai mare între imagini pentru un aspect aerisit */
+    padding: 40px 10%;
+    max-width: 1400px; /* Lățime maximă mai mare pentru a permite poze mai mari */
+    margin: 0 auto;
+}
+
+.lookbook-grid .item {
+    position: relative;
+    overflow: hidden;
+    /* Schimbăm raportul: 4/5 este mai înalt și mai lat, 
+       sau poți șterge linia dacă vrei să lase imaginea la dimensiunea ei naturală */
+    aspect-ratio: 4 / 5; 
+    background-color: #fff;
+    border: 1px solid #eee; /* Un contur fin pentru eleganță */
+}
+
+.lookbook-grid .item img {
+    width: 100%;
+    height: 100%;
+    /* SCHIMBARE CHEIE: 'contain' în loc de 'cover' 
+       asigură că TOATĂ imaginea se vede, fără să fie tăiată deloc */
+    object-fit: contain; 
+    display: block;
+    background-color: #fff; /* Fundal alb în cazul în care imaginea nu umple tot cadrul */
+    transition: transform 0.5s ease;
+}
+
+.lookbook-grid .item:hover img {
+    transform: scale(1.02); /* Un zoom mai discret */
+}
+
+/* Responsivitate */
+@media (max-width: 1024px) {
+    .lookbook-grid {
+        grid-template-columns: 1fr; /* Pe tablete și mobil rămâne o singură imagine mare */
+        padding: 20px 15%;
+    }
+}
