@@ -20,46 +20,84 @@ nav {
 nav ul { display: flex; list-style: none; gap: 20px; }
 nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
 
-/* --- REPARARE PAGINA ACASĂ & COLECȚIE --- */
-/* Am combinat .hero din index cu .arrival-style-grid din colectie */
-.hero, .arrival-style-grid {
+/* --- REPARARE PAGINA ACASĂ (INDEX.HTML) --- */
+.hero-main {
+    text-align: center;
+    padding: 60px 10% 20px;
+}
+.hero-main h1 { font-size: 3rem; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 10px; }
+
+.main-grid {
     display: flex;
     justify-content: center;
-    align-items: stretch;
     gap: 20px;
     padding: 40px 10%;
     flex-wrap: wrap;
 }
-
-/* Am combinat .hero-card cu .arrival-card */
-.hero div, .arrival-card {
+.white-box {
     background: #FDFBFA;
     padding: 100px 40px;
     flex: 1;
     min-width: 300px;
     text-align: center;
     border: 1px solid #D6D1CC;
-    text-transform: uppercase;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-transform: uppercase;
 }
-
-/* Stil pentru titlurile din acele pătrate */
-.hero h2, .arrival-card h2 {
-    font-size: 1.6rem;
-    letter-spacing: 4px;
-    margin-bottom: 20px;
+.white-box h2 { font-size: 1.5rem; letter-spacing: 4px; margin-bottom: 20px; }
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #4A4A4A;
+    color: #4A4A4A;
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: 0.3s;
 }
+.btn:hover { background: #4A4A4A; color: #fff; }
 
-/* --- PAGINA LOOKBOOK (RĂMÂNE PE 3 COLOANE) --- */
+/* --- REPARARE PAGINA COLECȚIE (COLECTIE.HTML) --- */
+.hero-simple {
+    text-align: center;
+    padding: 60px 10% 20px;
+    text-transform: uppercase;
+}
+.arrival-style-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 10% 60px;
+    flex-wrap: wrap;
+}
+.arrival-card {
+    background: #FDFBFA;
+    padding: 60px 20px;
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+    border: 1px solid #D6D1CC;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.arrival-card h2 { font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 15px; }
+
+/* --- LOOKBOOK (DESIGN NOU - 3 COLOANE) --- */
+/* Folosim clasa .hero doar pentru header-ul din Lookbook */
+header.hero {
+    text-align: center;
+    padding: 60px 10% 40px;
+}
 .lookbook-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    padding: 40px 10%;
-    max-width: 1200px;
+    padding: 20px 10% 80px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 .lookbook-grid .item {
@@ -69,24 +107,28 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     display: flex;
     flex-direction: column;
 }
-.lookbook-grid .look-image-container {
+.look-image-container {
     width: 100%;
     aspect-ratio: 3 / 4;
     overflow: hidden;
     margin-bottom: 15px;
 }
-.lookbook-grid .item img {
+.lookbook-grid img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
+.look-info { text-align: center; }
+.look-info h3 { font-size: 1rem; margin-bottom: 5px; text-transform: uppercase; }
+.look-info .price { display: block; margin: 10px 0; font-weight: bold; }
 
-/* --- CATALOG PRODUSE (COLECȚIE) --- */
+/* --- CATALOG PRODUSE --- */
+.catalog-title { text-align: center; padding: 40px 0 20px; letter-spacing: 5px; text-transform: uppercase; }
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    padding: 40px 10%;
+    padding: 20px 10% 60px;
 }
 .product-card {
     text-align: center;
@@ -96,29 +138,29 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
 }
 .product-card img { width: 100%; height: auto; margin-bottom: 15px; }
 
-/* --- BUTOANE --- */
+/* --- BUTOANE GENERALE --- */
 .shop-btn, .add-to-cart {
     border: 1px solid #4A4A4A;
-    padding: 12px 30px;
+    padding: 12px 25px;
     background: transparent;
     color: #4A4A4A;
     cursor: pointer;
     text-transform: uppercase;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     letter-spacing: 1px;
     transition: 0.3s;
     text-decoration: none;
 }
-.shop-btn:hover, .add-to-cart:hover {
-    background: #4A4A4A;
-    color: #fff;
-}
+.shop-btn:hover, .add-to-cart:hover { background: #4A4A4A; color: #fff; }
+
+/* --- FOOTER --- */
+footer { text-align: center; padding: 40px; border-top: 1px solid #D6D1CC; font-size: 0.8rem; opacity: 0.7; }
 
 /* --- RESPONSIVITATE --- */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
     .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
     .lookbook-grid { grid-template-columns: 1fr; }
-    .hero, .arrival-style-grid { padding: 20px 5%; }
+    .main-grid, .arrival-style-grid { padding: 20px 5%; }
 }
