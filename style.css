@@ -216,3 +216,60 @@ footer {
     font-size: 0.8rem; 
     opacity: 0.6; 
 }
+/* --- LOOKBOOK GRID REPARAT --- */
+.lookbook-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 coloane egale */
+    gap: 20px; /* Spațiu între imagini */
+    padding: 40px 10%;
+}
+
+.lookbook-grid .item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3 / 4; /* Aceasta forțează toate cutiile să aibă aceeași proporție (tip portret) */
+}
+
+.lookbook-grid .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Imaginea va umple cutia fără să se deformeze, tăind marginile dacă e necesar */
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+/* Efect de zoom la hover pentru un plus de stil */
+.lookbook-grid .item:hover img {
+    transform: scale(1.05);
+}
+
+/* Overlay-ul cu textul (Look 01, etc.) */
+.lookbook-grid .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.7); /* Fundal alb semitransparent */
+    padding: 15px;
+    text-align: center;
+    transform: translateY(100%); /* Ascuns implicit */
+    transition: transform 0.3s ease;
+}
+
+.lookbook-grid .item:hover .overlay {
+    transform: translateY(0); /* Apare la hover */
+}
+
+.lookbook-grid .overlay h3 {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+/* Responsivitate pentru mobil: trecem la 1 coloană pe ecrane mici */
+@media (max-width: 768px) {
+    .lookbook-grid {
+        grid-template-columns: 1fr;
+    }
+}
