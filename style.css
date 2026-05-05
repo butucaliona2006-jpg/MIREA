@@ -1,115 +1,40 @@
-/* --- FUNDAMENTE --- */
-@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIRÉA | Lookbook</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">MIRÉA</div>
+        <ul>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="colectie.html">Colecția</a></li>
+            <li><a href="lookbook.html">Lookbook</a></li>
+            <li><a href="despre.html">Despre</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+    <header class="hero">
+        <h1>Lookbook</h1>
+        <p>Inspirație minimalistă pentru fiecare zi.</p>
+    </header>
 
-body {
-    font-family: 'Tenor Sans', serif;
-    background-color: #EAE5E0;
-    color: #4A4A4A;
-    line-height: 1.6;
-}
+    <section class="grid">
+        <div class="item" style="grid-column: span 2; height: 500px;">
+            <h3>Look 01: Timeless Beige</h3>
+        </div>
+        <div class="item">
+            <h3>Look 02: Minimalist Silk</h3>
+        </div>
+        <div class="item">
+            <h3>Look 03: Urban Elegance</h3>
+        </div>
+    </section>
 
-/* --- NAVIGAȚIE (Fixă pentru toate paginile) --- */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 10%;
-}
-.logo { font-size: 1.5rem; letter-spacing: 7px; text-transform: uppercase; }
-nav ul { display: flex; list-style: none; gap: 20px; }
-nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
-
-/* --- INDEX & COLECȚIE (Stilurile originale) --- */
-.hero-main, .hero-simple, .hero {
-    text-align: center;
-    padding: 80px 20px;
-}
-.container {
-    padding: 0 10% 80px 10%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.main-grid, .arrival-style-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-}
-.white-box, .arrival-card {
-    background-color: #FDFBFA;
-    padding: 100px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #D6D1CC;
-}
-
-/* --- CATALOG PRODUSE (Colectie.html) --- */
-.product-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; 
-}
-.product-card { text-align: center; background: #FDFBFA; padding-bottom: 20px; border: 1px solid #D6D1CC; }
-.product-card img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-    display: block;
-}
-
-/* --- SECȚIUNEA LOOKBOOK (Reparată să nu afecteze restul) --- */
-.lookbook-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    padding: 40px 10%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-.lookbook-card {
-    display: flex;
-    flex-direction: column;
-}
-/* Folosim .lookbook-card .item ca să nu stricăm alte elemente .item */
-.lookbook-card .item {
-    position: relative;
-    overflow: hidden;
-    height: 450px; 
-    background-color: #fff;
-    border: 1px solid #D6D1CC;
-}
-.lookbook-card .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-.look-info { padding: 15px 0; text-align: center; }
-.look-info h3 { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; }
-.look-info p { font-size: 0.75rem; color: #888; font-style: italic; }
-
-/* --- BUTOANE --- */
-.btn, .add-to-cart, .shop-btn {
-    border: 1px solid #4A4A4A;
-    padding: 12px 35px;
-    text-decoration: none;
-    color: #4A4A4A;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: none;
-    cursor: pointer;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-    .lookbook-grid, .product-grid, .main-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-    .lookbook-grid, .product-grid, .main-grid { grid-template-columns: 1fr; }
-}
+    <script src="script.js"></script>
+</body>
+</html>
