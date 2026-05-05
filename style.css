@@ -1,4 +1,4 @@
-/* --- STILURI GENERALE (PENTRU TOATE PAGINILE) --- */
+/* --- FUNDAMENTE (PENTRU TOATE PAGINILE) --- */
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -23,32 +23,41 @@ nav ul { display: flex; list-style: none; gap: 20px; }
 
 nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
 
-/* --- STILURI SPECIFICE PAGINA ACASĂ & COLECȚIE (HERO CARDS) --- */
-/* Folosim containere flexibile care să nu fie afectate de grid-ul din lookbook */
-.hero-container, .collection-grid {
+/* --- REPARARE PAGINA ACASĂ & COLECȚIE (PĂTRATELE MARI) --- */
+/* Folosim exact clasele tale din HTML: arrival-style-grid și arrival-card */
+
+.arrival-style-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 20px 10%;
+    padding: 40px 10%;
 }
 
-.hero-card, .collection-card {
+.arrival-card {
     background: #FDFBFA;
-    padding: 60px 20px;
+    padding: 80px 20px; /* Le face mari ca înainte */
     flex: 1;
     min-width: 300px;
     text-align: center;
     border: 1px solid #D6D1CC;
     text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-/* --- STILURI SPECIFICE DOAR PENTRU LOOKBOOK --- */
-/* Am adăugat prefixul .lookbook-grid în fața fiecărei reguli ca să nu strice restul site-ului */
+.arrival-card h2 {
+    font-size: 1.5rem;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
 
+/* --- STILURI SPECIFICE DOAR PENTRU LOOKBOOK (3 COLOANE) --- */
 .lookbook-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 pe rând */
+    grid-template-columns: repeat(3, 1fr); /* Forțează 3 pe rând */
     gap: 30px;
     padding: 40px 10%;
     max-width: 1200px;
@@ -80,27 +89,53 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     text-align: center;
 }
 
-/* BUTOANE */
-.add-to-cart, .shop-btn {
-    border: 1px solid #4A4A4A;
-    padding: 10px;
-    background: transparent;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    width: 100%;
+/* --- CATALOG PRODUSE (Pagina Colecție - rândurile de jos) --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px 10%;
 }
 
-.add-to-cart:hover, .shop-btn:hover {
+.product-card {
+    text-align: center;
+    background: white;
+    padding: 15px;
+    border: 1px solid #eee;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+/* --- BUTOANE --- */
+.shop-btn, .add-to-cart {
+    border: 1px solid #4A4A4A;
+    padding: 12px 25px;
+    background: transparent;
+    color: #4A4A4A;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.shop-btn:hover, .add-to-cart:hover {
     background: #4A4A4A;
     color: #fff;
 }
 
-/* RESPONSIVITATE */
+/* --- RESPONSIVITATE --- */
 @media (max-width: 900px) {
     .lookbook-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 600px) {
     .lookbook-grid { grid-template-columns: 1fr; }
+    .arrival-card { flex: 100%; }
 }
