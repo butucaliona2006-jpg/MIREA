@@ -53,6 +53,19 @@ nav a {
     margin: 0 auto;
 }
 
+/* CENTRARE TITLURI CATEGORII */
+.container h2, 
+.product-section h2, 
+.catalog-title {
+    text-align: center !important;
+    width: 100%;
+    display: block;
+    margin: 60px auto 30px auto;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
 .main-grid, .arrival-style-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -90,7 +103,7 @@ nav a {
     color: #fff;
 }
 
-/* --- CATALOG PRODUSE (COLECTIE.HTML) --- */
+/* --- CATALOG PRODUSE --- */
 .product-section { 
     padding: 100px 10%; 
     background-color: #FDFBFA; 
@@ -127,38 +140,12 @@ nav a {
     margin-bottom: 15px; 
 }
 
-/* --- SECȚIUNE LOOKBOOK (3 COLOANE CU DESCRIERE) --- */
+/* --- SECȚIUNE LOOKBOOK --- */
 .lookbook-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     padding: 40px 10%;
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-.lookbook-card {
-    display: flex;
-    flex-direction: column;
-}
-
-.lookbook-card .item {
-    position: relative;
-    overflow: hidden;
-    height: 450px; 
-    background-color: #fff;
-    border: 1px solid #D6D1CC;
-}
-
-.lookbook-card .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-.lookbook-card .item:hover img {
-    transform: scale(1.03);
 }
 
 .look-info { 
@@ -166,20 +153,7 @@ nav a {
     text-align: center; 
 }
 
-.look-info h3 { 
-    font-size: 0.9rem; 
-    letter-spacing: 2px; 
-    text-transform: uppercase; 
-    color: #4A4A4A;
-}
-
-.look-info p { 
-    font-size: 0.75rem; 
-    color: #888; 
-    font-style: italic; 
-}
-
-/* --- REPARARE SECȚIUNE COȘ CUMPĂRĂTURI --- */
+/* --- REPARARE COȘ CUMPĂRĂTURI --- */
 #shopping-cart {
     margin-top: 50px;
     padding: 80px 10%;
@@ -210,7 +184,6 @@ nav a {
     border-bottom: 1px solid #D6D1CC;
     font-size: 0.9rem;
     width: 100%;
-    text-align: left;
 }
 
 .cart-total {
@@ -218,47 +191,22 @@ nav a {
     max-width: 600px;
     text-align: right; 
     font-weight: bold;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
     margin-bottom: 30px;
 }
 
-/* Butonul de Finalizare */
-#shopping-cart button, 
 .checkout-btn {
     border: 1px solid #4A4A4A;
     padding: 15px 40px;
-    text-decoration: none;
-    color: #4A4A4A;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
     text-transform: uppercase;
     background: none;
     cursor: pointer;
-    transition: 0.3s;
     width: fit-content;
 }
 
-#shopping-cart button:hover, 
-.checkout-btn:hover {
-    background-color: #4A4A4A;
-    color: #fff;
-}
-
 /* --- RESPONSIVITATE --- */
-@media (max-width: 1024px) {
-    .product-grid, .lookbook-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-    }
-}
-
 @media (max-width: 768px) {
-    .main-grid, .arrival-style-grid, .product-grid, .lookbook-grid { 
+    .main-grid, .product-grid { 
         grid-template-columns: 1fr; 
-    }
-    
-    .lookbook-card .item {
-        height: 400px;
     }
 }
 
@@ -267,23 +215,4 @@ footer {
     padding: 50px; 
     font-size: 0.8rem; 
     opacity: 0.6; 
-}
-/* --- CENTRARE TITLURI CATEGORII (COLECTIE.HTML) --- */
-.product-section h2, 
-.product-section h3,
-.catalog-title {
-    text-align: center;
-    width: 100%;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-
-/* Dacă ai link-uri de tip "EXPLOREAZĂ" sub titluri, le centrăm și pe ele */
-.product-section a {
-    display: block;
-    text-align: center;
-    margin: 0 auto 40px auto;
 }
