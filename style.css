@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&display=swap');
 
+/* RESETARE GENERALĂ */
 * {
     margin: 0;
     padding: 0;
@@ -13,6 +14,7 @@ body {
     line-height: 1.6;
 }
 
+/* NAVIGAȚIE */
 nav {
     display: flex;
     justify-content: space-between;
@@ -20,10 +22,25 @@ nav {
     padding: 2rem 10%;
 }
 
-.logo { font-size: 1.5rem; letter-spacing: 7px; }
-nav ul { display: flex; list-style: none; gap: 20px; }
-nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform: uppercase; }
+.logo { 
+    font-size: 1.5rem; 
+    letter-spacing: 7px; 
+}
 
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 20px; 
+}
+
+nav a { 
+    text-decoration: none; 
+    color: #4A4A4A; 
+    font-size: 0.8rem; 
+    text-transform: uppercase; 
+}
+
+/* LAYOUT PAGINI PRINCIPALE */
 .hero-main, .hero-simple, .hero {
     text-align: center;
     padding: 80px 20px;
@@ -52,6 +69,7 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     border: 1px solid #D6D1CC;
 }
 
+/* BUTOANE */
 .shop-btn, .btn {
     border: 1px solid #4A4A4A;
     padding: 12px 35px;
@@ -62,6 +80,7 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     transition: 0.3s;
     background: none;
     cursor: pointer;
+    display: inline-block;
 }
 
 .shop-btn:hover, .btn:hover {
@@ -69,14 +88,48 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     color: #fff;
 }
 
-/* CATALOG */
-.product-section { padding: 100px 10%; background-color: #FDFBFA; }
-.catalog-title { text-align: center; margin-bottom: 50px; letter-spacing: 3px; }
-.product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
-.product-card { text-align: center; }
-.product-card img { width: 100%; height: auto; margin-bottom: 20px; }
-.description { font-size: 0.8rem; color: #777; margin: 10px 0; min-height: 40px; }
-.price { font-weight: bold; margin-bottom: 15px; }
+/* CATALOG PRODUSE (COLECTIE.HTML) */
+.product-section { 
+    padding: 100px 10%; 
+    background-color: #FDFBFA; 
+}
+
+.catalog-title { 
+    text-align: center; 
+    margin-bottom: 50px; 
+    letter-spacing: 3px; 
+}
+
+.product-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 40px; 
+}
+
+.product-card { 
+    text-align: center; 
+}
+
+.product-card img { 
+    width: 100%; 
+    height: 400px; /* Înălțimea uniformă pe care o aveai anterior */
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin-bottom: 20px; 
+}
+
+.description { 
+    font-size: 0.8rem; 
+    color: #777; 
+    margin: 10px 0; 
+    min-height: 40px; 
+}
+
+.price { 
+    font-weight: bold; 
+    margin-bottom: 15px; 
+}
 
 /* BUTON ADAUGA IN COS */
 .add-to-cart {
@@ -89,26 +142,21 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
     transition: 0.3s;
 }
 
-.add-to-cart:hover { background: #4A4A4A; color: white; }
+.add-to-cart:hover { 
+    background: #4A4A4A; 
+    color: white; 
+}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .main-grid, .arrival-style-grid, .product-grid { grid-template-columns: 1fr; }
+    .main-grid, .arrival-style-grid, .product-grid { 
+        grid-template-columns: 1fr; 
+    }
 }
 
-footer { text-align: center; padding: 50px; font-size: 0.8rem; opacity: 0.6; }
-
-/* Uniformizarea dimensiunilor imaginilor de produs */
-.product-card img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.product-card img:hover {
-    opacity: 0.9;
-    transition: 0.3s;
+footer { 
+    text-align: center; 
+    padding: 50px; 
+    font-size: 0.8rem; 
+    opacity: 0.6; 
 }
