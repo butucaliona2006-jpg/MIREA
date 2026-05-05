@@ -23,116 +23,130 @@
         <p>Inspirație minimalistă pentru fiecare zi.</p>
     </header>
 
-  
     <div class="lookbook-grid">
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook1.jpg" alt="Look 01">
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook1.jpg" alt="Look 01">
+            </div>
+            <div class="look-info">
+                <h3>Look 01</h3>
+                <p class="description">Set office cu sacou crop beige și pantaloni palazzo.</p>
+                <span class="price">3250 MDL</span>
+                <button class="add-to-cart" data-name="Look 01" data-price="3250">Adaugă în coș</button>
+            </div>
         </div>
-        <div class="look-info">
-            <h3>Look 01</h3>
-            <p class="description">Set office cu sacou crop beige și pantaloni palazzo.</p>
-            <span class="price">3250 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook2.png" alt="Look 02">
+            </div>
+            <div class="look-info">
+                <h3>Look 02</h3>
+                <p class="description">Top verde smarald și pantaloni ivory.</p>
+                <span class="price">2850 MDL</span>
+                <button class="add-to-cart" data-name="Look 02" data-price="2850">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook3.png" alt="Look 03">
+            </div>
+            <div class="look-info">
+                <h3>Look 03</h3>
+                <p class="description">Top asimetric negru și pantaloni largi.</p>
+                <span class="price">3100 MDL</span>
+                <button class="add-to-cart" data-name="Look 03" data-price="3100">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook4.jpg" alt="Look 04">
+            </div>
+            <div class="look-info">
+                <h3>Look 04</h3>
+                <p class="description">Costum roz pudră cu sacou scurt.</p>
+                <span class="price">3400 MDL</span>
+                <button class="add-to-cart" data-name="Look 04" data-price="3400">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook5.jpg" alt="Look 05">
+            </div>
+            <div class="look-info">
+                <h3>Look 05</h3>
+                <p class="description">Maletă maro și pantaloni beige minimaliști.</p>
+                <span class="price">2750 MDL</span>
+                <button class="add-to-cart" data-name="Look 05" data-price="2750">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook6.png" alt="Look 06">
+            </div>
+            <div class="look-info">
+                <h3>Look 06</h3>
+                <p class="description">Poncho tricotat maro și pantaloni de lână.</p>
+                <span class="price">2900 MDL</span>
+                <button class="add-to-cart" data-name="Look 06" data-price="2900">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook7.png" alt="Look 07">
+            </div>
+            <div class="look-info">
+                <h3>Look 07</h3>
+                <p class="description">Sacou taupe și pantaloni evazați maro.</p>
+                <span class="price">3050 MDL</span>
+                <button class="add-to-cart" data-name="Look 07" data-price="3050">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook8.png" alt="Look 08">
+            </div>
+            <div class="look-info">
+                <h3>Look 08</h3>
+                <p class="description">Top asimetric verde și accesorii aurii.</p>
+                <span class="price">2600 MDL</span>
+                <button class="add-to-cart" data-name="Look 08" data-price="2600">Adaugă în coș</button>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="look-image-container">
+                <img src="imagini/lookbook/lookbook9.png" alt="Look 09">
+            </div>
+            <div class="look-info">
+                <h3>Look 09</h3>
+                <p class="description">Top drapat maro și bijuterii statement.</p>
+                <span class="price">2950 MDL</span>
+                <button class="add-to-cart" data-name="Look 09" data-price="2950">Adaugă în coș</button>
+            </div>
         </div>
     </div>
 
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook2.png" alt="Look 02">
+    <div id="cart-section" class="cart-summary">
+        <h2>COȘUL TĂU</h2>
+        <div id="cart-items">
+            </div>
+        <div id="total-container">
+            <p id="cart-total">TOTAL: 0 MDL</p>
         </div>
-        <div class="look-info">
-            <h3>Look 02</h3>
-            <p class="description">Top verde smarald și pantaloni ivory.</p>
-            <span class="price">2850 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
+        <button class="checkout-btn" onclick="checkout()">FINALIZEAZĂ COMANDA</button>
     </div>
 
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook3.png" alt="Look 03">
-        </div>
-        <div class="look-info">
-            <h3>Look 03</h3>
-            <p class="description">Top asimetric negru și pantaloni largi.</p>
-            <span class="price">3100 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
+    <footer>
+        <p>&copy; 2026 MIRÉA. Toate drepturile rezervate.</p>
+    </footer>
 
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook4.jpg" alt="Look 04">
-        </div>
-        <div class="look-info">
-            <h3>Look 04</h3>
-            <p class="description">Costum roz pudră cu sacou scurt.</p>
-            <span class="price">3400 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook5.jpg" alt="Look 05">
-        </div>
-        <div class="look-info">
-            <h3>Look 05</h3>
-            <p class="description">Maletă maro și pantaloni beige minimaliști.</p>
-            <span class="price">2750 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook6.png" alt="Look 06">
-        </div>
-        <div class="look-info">
-            <h3>Look 06</h3>
-            <p class="description">Poncho tricotat maro și pantaloni de lână.</p>
-            <span class="price">2900 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook7.png" alt="Look 07">
-        </div>
-        <div class="look-info">
-            <h3>Look 07</h3>
-            <p class="description">Sacou taupe și pantaloni evazați maro.</p>
-            <span class="price">3050 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook8.png" alt="Look 08">
-        </div>
-        <div class="look-info">
-            <h3>Look 08</h3>
-            <p class="description">Top asimetric verde și accesorii aurii.</p>
-            <span class="price">2600 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
-
-    <div class="item">
-        <div class="look-image-container">
-            <img src="imagini/lookbook/lookbook9.png" alt="Look 09">
-        </div>
-        <div class="look-info">
-            <h3>Look 09</h3>
-            <p class="description">Top drapat maro și bijuterii statement.</p>
-            <span class="price">2950 MDL</span>
-            <button class="add-to-cart">Adaugă în coș</button>
-        </div>
-    </div>
-</div>
     <script src="script.js"></script>
 </body>
 </html>
