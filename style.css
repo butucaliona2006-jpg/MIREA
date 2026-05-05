@@ -143,3 +143,37 @@ nav a { text-decoration: none; color: #4A4A4A; font-size: 0.8rem; text-transform
 @media (max-width: 700px) {
     .product-grid, .lookbook-grid { grid-template-columns: 1fr !important; }
 }
+/* 1. Centrarea titlurilor principale de pagină (Colecția, Lookbook, etc.) */
+h1, .catalog-title, .lookbook-title {
+    text-align: center !important;
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+/* 2. Centrarea subtitlurilor (ex: "Alege categoria...", "Inspirație...") */
+h1 + p, .hero-main p, .lookbook-grid + p {
+    text-align: center !important;
+    width: 100%;
+    display: block;
+    margin-bottom: 40px;
+}
+
+/* 3. Centrarea textului din Footer (© 2026 MIRÉA) */
+footer, .footer-content, footer p {
+    text-align: center !important;
+    padding: 40px 0;
+    width: 100%;
+}
+
+/* 4. Corecție pentru secțiunea de Categorii (Rochii, Costume, etc.) */
+/* Dacă containerele albe sunt încă aliniate la stânga ca grup */
+.arrival-style-grid, .main-grid {
+    display: flex;
+    justify-content: center !important; /* Forțează grupul de cutii pe mijloc */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
