@@ -160,3 +160,61 @@ footer {
     font-size: 0.8rem; 
     opacity: 0.6; 
 }
+/* --- SECȚIUNE COȘ CUMPĂRĂTURI --- */
+#shopping-cart {
+    margin-top: 50px;
+    padding: 80px 10%;
+    border-top: 1px solid #D6D1CC;
+    text-align: center; /* Centrează titlul și conținutul */
+}
+
+#shopping-cart h2 {
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+.cart-items {
+    max-width: 600px;
+    margin: 0 auto; /* Centrează lista de produse */
+    text-align: left; /* Aliniază textul produselor la stânga în interiorul containerului centrat */
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #D6D1CC;
+    font-size: 0.9rem;
+}
+
+.cart-total {
+    max-width: 600px;
+    margin: 30px auto;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* Butonul de Finalizare Comandă */
+.checkout-btn {
+    display: block;
+    margin: 40px auto 0 auto; /* Centrează butonul sub total */
+    border: 1px solid #4A4A4A;
+    padding: 15px 40px;
+    text-decoration: none;
+    color: #4A4A4A;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.checkout-btn:hover {
+    background-color: #4A4A4A;
+    color: #fff;
+}
