@@ -290,17 +290,15 @@
     </div>
 </section>
     <!-- SECȚIUNE COȘ CUMPĂRĂTURI -->
-    <section id="shopping-cart" class="container">
-        <h2 class="catalog-title">COȘUL TĂU</h2>
-        <div id="cart-items">
-            <p style="text-align: center; opacity: 0.5;">Coșul este momentan gol.</p>
+    <section id="cart-section" class="cart-summary">
+    <h2 class="catalog-title">COȘUL TĂU</h2>
+    <div id="cart-items">
         </div>
-        <div class="cart-total">
-            <p>TOTAL: <span id="total-price">0</span> MDL</p>
-            <button id="checkout-btn" class="shop-btn">FINALIZEAZĂ COMANDA</button>
-        </div>
-        <div id="order-status"></div>
-    </section>
+    <div id="total-container">
+        <p>TOTAL: <span id="cart-total">0</span> MDL</p>
+    </div>
+    <button class="checkout-btn" onclick="checkout()">FINALIZEAZĂ COMANDA</button>
+</section>
 
     <footer>
         <p>&copy; 2026 MIRÉA. Toate drepturile rezervate.</p>
