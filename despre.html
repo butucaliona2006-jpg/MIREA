@@ -5,26 +5,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MIRÉA | Despre</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stiluri specifice pentru pagina Despre pentru un aspect editorial */
+        .about-section {
+            padding: 100px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 60px;
+            align-items: start;
+        }
+
+        .about-title-large {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #4A4A4A;
+            padding-bottom: 20px;
+        }
+
+        .about-subtitle {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .philosophy-box {
+            background-color: #f9f7f4; /* O nuanță foarte subtilă pentru contrast */
+            padding: 60px;
+            margin-top: 100px;
+            text-align: center;
+        }
+
+        .philosophy-text {
+            font-style: italic;
+            font-size: 1.5rem;
+            line-height: 2;
+            color: #4A4A4A;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .detail-block {
+            margin-bottom: 50px;
+        }
+
+        .detail-block h2 {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .detail-block p {
+            line-height: 2;
+            color: #666;
+            text-align: justify;
+        }
+
+        /* Responsive pentru ecrane mici */
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .about-title-large { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
     <nav>
-        <div class="logo">MIRÉA</div>
-        <ul>
-            <li><a href="index.html">Acasă</a></li>
-            <li><a href="colectie.html">Colecția</a></li>
-            <li><a href="lookbook.html">Lookbook</a></li>
-            <li><a href="despre.html">Despre</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <div class="logo">MIRÉA</div>
+    <ul class="nav-links">
+        <li><a href="index.html">Acasă</a></li>
+        <li><a href="colectie.html">Colecția</a></li>
+        <li><a href="lookbook.html">Lookbook</a></li>
+        <li><a href="despre.html">Despre</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="cart-icon-container">
+            <a href="cos.html" id="cart-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <path d="M16 10a4 4 0 0 1-8 0"></path>
+                </svg>
+                <span id="cart-count">0</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+    <main class="about-section">
+        <span class="about-subtitle">Povestea Noastră</span>
+        <h1 class="about-title-large">Esența MIRÉA</h1>
 
-    <header class="hero">
-        <h1>Povestea Noastră</h1>
-        <div style="max-width: 700px; margin: 0 auto; line-height: 1.8;">
-            <p>MIRÉA este un brand dedicat femeilor care aleg simplitatea, eleganța și autenticitatea. Fiecare piesă este creată pentru a pune în valoare frumusețea naturală.</p>
-            <p>Credem în luxul discret și în confortul care îți permite să fii tu însăți în fiecare moment al zilei.</p>
+        <div class="about-grid">
+            <div class="detail-block">
+                <h2>VIZIUNEA</h2>
+                <p>MIRÉA nu este doar un nume, ci o manifestare a feminității conștiente. Într-o lume a vitezei, noi alegem să încetinim timpul prin piese care respiră. Brandul nostru s-a născut din dorința de a redefini luxul: nu prin opulență, ci prin puritatea formelor și calitatea texturilor care ating pielea.</p>
+            </div>
+            <div class="detail-block">
+                <h2>AUTENTICITATE</h2>
+                <p>Fiecare croială este gândită să acompanieze mișcările naturale ale corpului. Credem că o femeie este cel mai frumoasă atunci când se simte liberă și confortabilă. Designul nostru minimalist elimină zgomotul vizual, lăsând personalitatea ta să fie singura care strălucește.</p>
+            </div>
         </div>
-    </header>
+
+        <div class="philosophy-box">
+            <p class="philosophy-text">"Luxul discret este limbajul celor care nu au nevoie să strige pentru a fi observați."</p>
+        </div>
+
+        <div class="about-grid" style="margin-top: 100px;">
+            <div class="detail-block">
+                <p>Suntem dedicați sustenabilității estetice. Nu urmăm tendințele trecătoare care dispar după un sezon, ci creăm piese atemporale care devin parte din istoria ta personală. Fiecare alegere, de la firul de ață până la ultimul nasture, reflectă respectul nostru pentru măiestrie și detalii.</p>
+            </div>
+            <div class="detail-block">
+                <h2>PROMISIUNEA NOASTRĂ</h2>
+                <p>MIRÉA promite o experiență, nu doar un produs. Ne adresăm femeii care apreciază simplitatea ca fiind forma supremă de sofisticare. Te invităm să descoperi o colecție unde eleganța se întâlnește cu funcționalitatea, oferindu-ți încrederea de a fi tu însăți, în fiecare moment al zilei.</p>
+            </div>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
