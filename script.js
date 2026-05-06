@@ -54,7 +54,7 @@ function removeItem(index) {
     updateCart();
 }
 
-// Funcție finalizare
+// Funcție finalizare comandă (doar alertă momentan)
 function checkout() {
     if (cart.length === 0) {
         alert("Coșul tău este gol!");
@@ -67,7 +67,8 @@ function checkout() {
 
 // Apelăm la încărcarea paginii ca să vedem produsele adăugate anterior
 window.onload = updateCart;
-// --- GESTIONARE FORMULAR CONTACT ---
+
+// --- GESTIONARE FORMULAR CONTACT (FORMSPREE) ---
 const contactForm = document.getElementById('contactForm');
 const responseMessage = document.getElementById('responseMessage');
 
@@ -78,12 +79,13 @@ if (contactForm) {
         const formData = new FormData(this);
         const submitBtn = document.getElementById('submitBtn');
         
-        // Schimbăm textul butonului în timp ce se trimite
+        // Dezactivăm butonul în timpul trimiterii pentru a evita dubla trimitere
         submitBtn.innerText = "SE TRIMITE...";
         submitBtn.disabled = true;
 
         try {
-            const response = await fetch("https://formspree.io/f/butuc.aliona2006@gmail.com", {
+            // AM ACTUALIZAT LINK-UL: Folosim codul tău unic de pe Formspree (xvzlrrll)
+            const response = await fetch("https://formspree.io/f/xvzlrrll", {
                 method: "POST",
                 body: formData,
                 headers: {
@@ -92,18 +94,18 @@ if (contactForm) {
             });
 
             if (response.ok) {
-                // Mesaj de succes
-                responseMessage.innerHTML = "<span style='color: green;'>Mesajul a fost trimis cu succes! Te vom contacta în curând.</span>";
-                contactForm.reset(); // Curăță câmpurile formularului
+                // Mesaj de succes pe ecran
+                responseMessage.innerHTML = "<span style='color: green; font-weight: bold;'>Mesajul a fost trimis! Te vom contacta în curând.</span>";
+                contactForm.reset(); // Curățăm câmpurile formularului
             } else {
-                // Mesaj de eroare de la server
-                responseMessage.innerHTML = "<span style='color: red;'>Ups! A apărut o problemă. Te rugăm să încerci din nou.</span>";
+                // Eroare de la server (ex: Formspree nu e configurat bine)
+                responseMessage.innerHTML = "<span style='color: red;'>Ups! A apărut o eroare la server. Încearcă mai târziu.</span>";
             }
         } catch (error) {
-            // Mesaj de eroare de rețea
-            responseMessage.innerHTML = "<span style='color: red;'>Eroare de conexiune. Verifică internetul.</span>";
+            // Eroare de rețea (ex: nu ai internet)
+            responseMessage.innerHTML = "<span style='color: red;'>Eroare de conexiune. Verifică internetul tău.</span>";
         } finally {
-            // Resetăm butonul
+            // Readucem butonul la starea inițială
             submitBtn.innerText = "TRIMITE";
             submitBtn.disabled = false;
         }
