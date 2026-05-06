@@ -41,20 +41,16 @@
 
             <!-- Formular Dreapta -->
             <div class="form-container">
-                <!-- AM ACTUALIZAT FORM-UL MAI JOS -->
-                <form 
-                    action="https://formspree.io/f/butuc.aliona2006@gmail.com" 
-                    method="POST" 
-                    id="contactForm" 
-                    class="contact-form"
-                >
+                <!-- Formularul este gestionat prin script.js pentru a evita redirecționarea -->
+                <form id="contactForm" class="contact-form">
                     <input type="text" name="nume" id="nume" placeholder="NUME COMPLET" required>
                     <input type="email" name="email" id="email" placeholder="ADRESA EMAIL" required>
                     <textarea name="mesaj" id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
                     
                     <button type="submit" id="submitBtn">TRIMITE</button>
                 </form>
-                <div id="responseMessage"></div>
+                <!-- Locul unde va apărea mesajul de succes sau eroare -->
+                <div id="responseMessage" style="margin-top: 20px; font-size: 0.9rem; min-height: 20px;"></div>
             </div>
         </div>
     </main>
