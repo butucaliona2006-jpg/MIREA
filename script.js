@@ -1,22 +1,17 @@
-// 1. Încărcăm datele salvate anterior sau un coș gol
 let cart = JSON.parse(localStorage.getItem('mirea_cart')) || [];
 
-// 2. Ascultăm click-urile pe butoanele "Adaugă în coș"
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         const name = button.getAttribute('data-name');
         const price = parseInt(button.getAttribute('data-price'));
-
         cart.push({ name, price });
         updateCart();
     });
 });
 
-// 3. Funcția care desenează coșul și calculează totalul
 function updateCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartTotalElement = document.getElementById('cart-total');
-    
     if (!cartItemsContainer || !cartTotalElement) return;
 
     cartItemsContainer.innerHTML = '';
@@ -31,7 +26,6 @@ function updateCart() {
             itemDiv.style.justifyContent = "center";
             itemDiv.style.gap = "15px";
             itemDiv.style.margin = "10px 0";
-            
             itemDiv.innerHTML = `
                 <span>${item.name}</span> 
                 <strong>${item.price} MDL</strong>
@@ -41,71 +35,69 @@ function updateCart() {
             total += item.price;
         });
     }
-
     cartTotalElement.innerText = total;
-    
-    // 4. SALVĂM coșul în memoria browserului (LocalStorage)
     localStorage.setItem('mirea_cart', JSON.stringify(cart));
 }
 
-// Funcție pentru ștergere
 function removeItem(index) {
     cart.splice(index, 1);
     updateCart();
 }
 
-// Funcție finalizare comandă (doar alertă momentan)
-function checkout() {
+// FUNCȚIA DE COMANDĂ - Trimite către baza de date locală
+async function checkout() {
     if (cart.length === 0) {
         alert("Coșul tău este gol!");
-    } else {
-        alert("Comanda a fost recepționată! Vă mulțumim.");
-        cart = [];
-        updateCart();
+        return;
+    }
+
+    try {
+        const response = await fetch('comanda.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ produse: cart })
+        });
+
+        const result = await response.text();
+        if (response.ok) {
+            document.body.innerHTML = result;
+            cart = [];
+            localStorage.removeItem('mirea_cart');
+        } else {
+            alert("Eroare la procesarea comenzii.");
+        }
+    } catch (error) {
+        alert("Eroare de conexiune cu serverul local.");
     }
 }
 
-// Apelăm la încărcarea paginii ca să vedem produsele adăugate anterior
-window.onload = updateCart;
-
-// --- GESTIONARE FORMULAR CONTACT (FORMSPREE) ---
+// GESTIONARE CONTACT - Trimite către PHP local (care va trimite apoi la Formspree)
 const contactForm = document.getElementById('contactForm');
-const responseMessage = document.getElementById('responseMessage');
-
 if (contactForm) {
     contactForm.addEventListener('submit', async function(event) {
-        event.preventDefault(); // Împiedică reîncărcarea paginii
-
+        event.preventDefault();
         const formData = new FormData(this);
         const submitBtn = document.getElementById('submitBtn');
         
-        // Dezactivăm butonul în timpul trimiterii pentru a evita dubla trimitere
         submitBtn.innerText = "SE TRIMITE...";
         submitBtn.disabled = true;
 
         try {
-            // AM ACTUALIZAT LINK-UL: Folosim codul tău unic de pe Formspree (xvzlrrll)
-            const response = await fetch("https://formspree.io/f/xvzlrrll", {
+            // Trimitem datele către contact.php-ul tău local
+            const response = await fetch("contact.php", {
                 method: "POST",
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                body: formData
             });
 
             if (response.ok) {
-                // Mesaj de succes pe ecran
-                responseMessage.innerHTML = "<span style='color: green; font-weight: bold;'>Mesajul a fost trimis! Te vom contacta în curând.</span>";
-                contactForm.reset(); // Curățăm câmpurile formularului
+                document.getElementById('responseMessage').innerHTML = "<span style='color: green;'>Mesaj salvat local și trimis pe email!</span>";
+                contactForm.reset();
             } else {
-                // Eroare de la server (ex: Formspree nu e configurat bine)
-                responseMessage.innerHTML = "<span style='color: red;'>Ups! A apărut o eroare la server. Încearcă mai târziu.</span>";
+                document.getElementById('responseMessage').innerHTML = "<span style='color: red;'>Eroare la salvarea mesajului.</span>";
             }
         } catch (error) {
-            // Eroare de rețea (ex: nu ai internet)
-            responseMessage.innerHTML = "<span style='color: red;'>Eroare de conexiune. Verifică internetul tău.</span>";
+            document.getElementById('responseMessage').innerHTML = "<span style='color: red;'>Eroare de conexiune.</span>";
         } finally {
-            // Readucem butonul la starea inițială
             submitBtn.innerText = "TRIMITE";
             submitBtn.disabled = false;
         }
