@@ -31,7 +31,7 @@
             <div class="contact-details">
                 <div class="info-group">
                     <h3>EMAIL</h3>
-                    <p><a href="mailto:mirea@gmail.com">mirea@gmail.com</a></p>
+                    <p><a href="mailto:butuc.aliona2006@gmail.com">butuc.aliona2006@gmail.com</a></p>
                 </div>
                 <div class="info-group">
                     <h3>INSTAGRAM</h3>
@@ -41,10 +41,17 @@
 
             <!-- Formular Dreapta -->
             <div class="form-container">
-                <form id="contactForm" class="contact-form">
-                    <input type="text" id="nume" placeholder="NUME COMPLET" required>
-                    <input type="email" id="email" placeholder="ADRESA EMAIL" required>
-                    <textarea id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
+                <!-- AM ACTUALIZAT FORM-UL MAI JOS -->
+                <form 
+                    action="https://formspree.io/f/butuc.aliona2006@gmail.com" 
+                    method="POST" 
+                    id="contactForm" 
+                    class="contact-form"
+                >
+                    <input type="text" name="nume" id="nume" placeholder="NUME COMPLET" required>
+                    <input type="email" name="email" id="email" placeholder="ADRESA EMAIL" required>
+                    <textarea name="mesaj" id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
+                    
                     <button type="submit" id="submitBtn">TRIMITE</button>
                 </form>
                 <div id="responseMessage"></div>
