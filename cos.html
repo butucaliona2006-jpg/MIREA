@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <title>MIRÉA | Coșul tău</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .cart-page-container { padding: 100px 10%; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .cart-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+        /* Stil pentru rândurile de produse pe care le generează JS */
+        .cart-item-row { 
+            border-bottom: 1px solid #eee; 
+            padding: 15px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .cart-total-container { text-align: right; margin-top: 30px; font-size: 1.5rem; letter-spacing: 1px; font-weight: bold; }
+        .btn-comanda { 
+            display: inline-block; background: #000; color: #fff; padding: 15px 40px; 
+            text-decoration: none; margin-top: 20px; transition: 0.3s; cursor: pointer; border: none;
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+        .btn-comanda:hover { background: #4A4A4A; }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MIRÉA</div>
+        <ul>
+            <li><a href="index.html">Acasă</a></li>
+            <li><a href="colectie.html">Colecția</a></li>
+            <li><a href="despre.html">Despre</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="cart-page-container">
+        <h1 style="letter-spacing: 5px; text-transform: uppercase;">Coșul de cumpărături</h1>
+        
+        <!-- AICI VOR APARE PRODUSELE -->
+        <div id="cart-items"></div>
+
+        <!-- SECȚIUNEA PENTRU TOTAL ȘI BUTON -->
+        <div class="cart-total-container">
+            TOTAL: <span id="cart-total">0</span> MDL
+        </div>
+
+        <button onclick="checkout()" class="btn-comanda">Finalizează Comanda</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Opțional: Forțăm actualizarea la încărcare dacă nu s-a făcut din script.js
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof updateCart === "function") {
+                updateCart();
+            }
+        });
+    </script>
+</body>
+</html>
