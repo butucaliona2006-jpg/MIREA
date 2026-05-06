@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- NAVIGAȚIE -->
     <nav>
         <div class="logo">MIRÉA</div>
         <ul>
@@ -18,26 +19,39 @@
         </ul>
     </nav>
 
-    <header class="hero">
-    <h1>Contact</h1>
-    <p>Scrie-ne. Suntem aici pentru tine.</p>
+    <!-- SECȚIUNE CONTACT -->
+    <main class="contact-container">
+        <header class="contact-header">
+            <h1>CONTACT</h1>
+            <p>Scrie-ne. Suntem aici pentru tine.</p>
+        </header>
 
-    <div class="contact-details">
-        <p>Email: <a href="mailto:mirea@gmail.com">mirea@gmail.com</a></p>
-        <p>Instagram: <a href="https://instagram.com/mirea.store" target="_blank">@mirea.store</a></p>
-    </div>
+        <div class="contact-grid">
+            <!-- Detalii Stânga -->
+            <div class="contact-details">
+                <div class="info-group">
+                    <h3>EMAIL</h3>
+                    <p><a href="mailto:mirea@gmail.com">mirea@gmail.com</a></p>
+                </div>
+                <div class="info-group">
+                    <h3>INSTAGRAM</h3>
+                    <p><a href="https://instagram.com/mirea.store" target="_blank">@mirea.store</a></p>
+                </div>
+            </div>
 
-    <div class="form-container">
-        <form id="contactForm">
-            <input type="text" id="nume" placeholder="NUME COMPLET" required>
-            <input type="email" id="email" placeholder="ADRESA EMAIL" required>
-            <textarea id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
-            <button type="submit" id="submitBtn">TRIMITE</button>
-        </form>
-        <div id="responseMessage"></div>
-    </div>
-</header>
+            <!-- Formular Dreapta -->
+            <div class="form-container">
+                <form id="contactForm" class="contact-form">
+                    <input type="text" id="nume" placeholder="NUME COMPLET" required>
+                    <input type="email" id="email" placeholder="ADRESA EMAIL" required>
+                    <textarea id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
+                    <button type="submit" id="submitBtn">TRIMITE</button>
+                </form>
+                <div id="responseMessage"></div>
+            </div>
+        </div>
+    </main>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
