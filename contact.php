@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         curl_close($ch);
 
         if ($savedLocal) {
-            echo "Mesaj salvat în baza de date și trimis prin Formspree!";
+            echo "Mesaj trimis cu succes!";
         } else {
-            echo "Eroare locală: " . $conn->error;
+            echo "Eroare locală: ";
         }
     } else {
         echo "Te rugăm să completezi toate câmpurile.";
