@@ -337,3 +337,42 @@ button[onclick*="checkout"],
         width: 100%; /* Pe mobil butonul e pe toată lățimea */
     }
 }
+/* Stil pentru containerul meniului */
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+/* Stil pentru pictograma coș */
+.cart-icon-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon-container svg {
+    transition: transform 0.3s ease;
+}
+
+.cart-icon-container:hover svg {
+    transform: scale(1.1);
+}
+
+/* Cercul cu numărul de produse */
+#cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: #4A4A4A;
+    color: white;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+    min-width: 15px;
+    text-align: center;
+}
