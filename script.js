@@ -1,98 +1,57 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. Smooth Scroll
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
+// Încărcăm coșul din memoria browserului când se deschide pagina
+let cart = JSON.parse(localStorage.getItem('mirea_cart')) || [];
+
+// Funcția de adăugare în coș
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const name = button.getAttribute('data-name');
+        const price = parseInt(button.getAttribute('data-price'));
+
+        cart.push({ name, price });
+        updateCart();
     });
-
-    // 2. Coș de Cumpărături (Logica Magazin)
-    let cart = [];
-    const cartItemsContainer = document.getElementById('cart-items');
-    const totalPriceElement = document.getElementById('total-price');
-
-    document.querySelectorAll('.add-to-cart').forEach(button => {
-        button.addEventListener('click', () => {
-            const name = button.getAttribute('data-name');
-            const price = parseInt(button.getAttribute('data-price'));
-            
-            cart.push({ name, price });
-            renderCart();
-        });
-    });
-
-    function renderCart() {
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="text-align: center; opacity: 0.5;">Coșul este gol.</p>';
-            totalPriceElement.innerText = '0';
-            return;
-        }
-
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        cart.forEach((item, index) => {
-            total += item.price;
-            const itemDiv = document.createElement('div');
-            itemDiv.className = 'cart-item';
-            itemDiv.innerHTML = `<span>${item.name}</span> <span>${item.price} MDL</span>`;
-            cartItemsContainer.appendChild(itemDiv);
-        });
-
-        totalPriceElement.innerText = total;
-    }
-
-    // 3. Finalizare Comandă (AJAX)
-    const checkoutBtn = document.getElementById('checkout-btn');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', () => {
-            if (cart.length === 0) {
-                alert("Adăugați cel puțin un produs în coș!");
-                return;
-            }
-
-            fetch('comanda.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ produse: cart })
-            })
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('order-status').innerHTML = data;
-                cart = []; // Golim coșul după succes
-                renderCart();
-            })
-            .catch(() => {
-                document.getElementById('order-status').innerHTML = "Eroare la procesarea comenzii.";
-            });
-        });
-    }
-
-    // 4. Formular Contact
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new URLSearchParams();
-            formData.append('nume', document.getElementById('nume').value);
-            formData.append('email', document.getElementById('email').value);
-            formData.append('mesaj', document.getElementById('mesaj').value);
-
-            fetch('contact.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.text())
-            .then(data => {
-                document.getElementById('responseMessage').innerHTML = data;
-                contactForm.reset();
-            });
-        });
-    }
 });
+
+// Funcția care actualizează afișarea și salvează datele
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+    
+    if(!cartItems || !cartTotal) return; // Siguranță în caz că elementele nu există pe pagină
+
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach((item, index) => {
+        const li = document.createElement('div');
+        li.style.margin = "10px 0";
+        li.innerHTML = `${item.name} - ${item.price} MDL <button onclick="removeItem(${index})" style="margin-left:10px; cursor:pointer;">X</button>`;
+        cartItems.appendChild(li);
+        total += item.price;
+    });
+
+    cartTotal.innerText = `TOTAL: ${total} MDL`;
+    
+    // SALVĂM în memoria browserului ca să fie disponibil pe cealaltă pagină
+    localStorage.setItem('mirea_cart', JSON.stringify(cart));
+}
+
+// Funcție pentru ștergerea unui produs
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
+
+// Funcția de finalizare (opțional)
+function checkout() {
+    if (cart.length === 0) {
+        alert("Coșul este gol!");
+    } else {
+        alert("Comanda a fost trimisă! Vă mulțumim.");
+        cart = []; // Golim coșul după comandă
+        updateCart();
+    }
+}
+
+// Apelăm updateCart la început pentru a afișa ce era deja în coș
+updateCart();
