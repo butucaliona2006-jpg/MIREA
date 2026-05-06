@@ -26,35 +26,68 @@
             <p>Scrie-ne. Suntem aici pentru tine.</p>
         </header>
 
-        <div class="contact-grid">
-            <!-- Detalii Stânga -->
-            <div class="contact-details">
-                <div class="info-group">
-                    <h3>EMAIL</h3>
-                    <p><a href="mailto:butuc.aliona2006@gmail.com">butuc.aliona2006@gmail.com</a></p>
-                </div>
-                <div class="info-group">
-                    <h3>INSTAGRAM</h3>
-                    <p><a href="https://instagram.com/mirea.store" target="_blank">@mirea.store</a></p>
-                </div>
-            </div>
+        <div class="contact-container">
+    
 
-            <!-- Formular Dreapta -->
-            <div class="form-container">
-                <!-- Formularul este gestionat prin script.js pentru a evita redirecționarea -->
-                <!-- În contact.html -->
-<form action="contact.php" method="POST">
-    <input type="text" name="nume" placeholder="Numele tău" required>
-    <input type="email" name="email" placeholder="Email-ul tău" required>
-    <textarea name="mesaj" placeholder="Mesajul tău" required></textarea>
-    <button type="submit">Trimite Mesaj</button>
-</form>
-                <!-- Locul unde va apărea mesajul de succes sau eroare -->
-                <div id="responseMessage" style="margin-top: 20px; font-size: 0.9rem; min-height: 20px;"></div>
+    <div class="contact-content">
+        <div class="contact-info">
+            <div class="info-item">
+                <h3>EMAIL</h3>
+                <a href="mailto:butuc.aliona2006@gmail.com">butuc.aliona2006@gmail.com</a>
+            </div>
+            <div class="info-item">
+                <h3>INSTAGRAM</h3>
+                <a href="https://instagram.com/mirea.store" target="_blank">@mirea.store</a>
             </div>
         </div>
-    </main>
 
-    <script src="script.js"></script>
+        <!-- Formularul cu ID pentru AJAX -->
+        <form id="contactForm" class="contact-form">
+            <div class="input-group">
+                <input type="text" name="nume" placeholder="NUME" required>
+            </div>
+            <div class="input-group">
+                <input type="email" name="email" placeholder="EMAIL" required>
+            </div>
+            <div class="input-group">
+                <textarea name="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
+            </div>
+            <button type="submit" id="submitBtn" class="btn-trimite">TRIMITE MESAJ</button>
+            <!-- Aici va apărea mesajul de succes -->
+            <div id="responseMessage" style="margin-top: 20px; font-size: 0.8rem; letter-spacing: 2px; color: #4A4A4A; display: none;"></div>
+        </form>
+    </div>
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Oprește deschiderea paginii albe PHP
+    
+    const btn = document.getElementById('submitBtn');
+    const responseDiv = document.getElementById('responseMessage');
+    const formData = new FormData(this);
+
+    btn.innerText = "SE TRIMITE...";
+    btn.disabled = true;
+
+    fetch('contact.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        responseDiv.innerText = "MESAJ TRIMIS CU SUCCES!";
+        responseDiv.style.display = "block";
+        btn.innerText = "TRIMITE MESAJ";
+        btn.disabled = false;
+        this.reset(); // Șterge textul din câmpuri
+    })
+    .catch(error => {
+        responseDiv.innerText = "A APĂRUT O EROARE. ÎNCEARCĂ DIN NOU.";
+        responseDiv.style.display = "block";
+        btn.disabled = false;
+    });
+});
+</script>
 </body>
 </html>
