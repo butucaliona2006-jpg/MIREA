@@ -42,13 +42,13 @@
             <!-- Formular Dreapta -->
             <div class="form-container">
                 <!-- Formularul este gestionat prin script.js pentru a evita redirecționarea -->
-                <form id="contactForm" class="contact-form">
-                    <input type="text" name="nume" id="nume" placeholder="NUME COMPLET" required>
-                    <input type="email" name="email" id="email" placeholder="ADRESA EMAIL" required>
-                    <textarea name="mesaj" id="mesaj" placeholder="MESAJUL TĂU" rows="5" required></textarea>
-                    
-                    <button type="submit" id="submitBtn">TRIMITE</button>
-                </form>
+                <!-- În contact.html -->
+<form action="contact.php" method="POST">
+    <input type="text" name="nume" placeholder="Numele tău" required>
+    <input type="email" name="email" placeholder="Email-ul tău" required>
+    <textarea name="mesaj" placeholder="Mesajul tău" required></textarea>
+    <button type="submit">Trimite Mesaj</button>
+</form>
                 <!-- Locul unde va apărea mesajul de succes sau eroare -->
                 <div id="responseMessage" style="margin-top: 20px; font-size: 0.9rem; min-height: 20px;"></div>
             </div>
