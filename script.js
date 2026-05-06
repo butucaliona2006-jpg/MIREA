@@ -67,3 +67,45 @@ function checkout() {
 
 // Apelăm la încărcarea paginii ca să vedem produsele adăugate anterior
 window.onload = updateCart;
+// --- GESTIONARE FORMULAR CONTACT ---
+const contactForm = document.getElementById('contactForm');
+const responseMessage = document.getElementById('responseMessage');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', async function(event) {
+        event.preventDefault(); // Împiedică reîncărcarea paginii
+
+        const formData = new FormData(this);
+        const submitBtn = document.getElementById('submitBtn');
+        
+        // Schimbăm textul butonului în timp ce se trimite
+        submitBtn.innerText = "SE TRIMITE...";
+        submitBtn.disabled = true;
+
+        try {
+            const response = await fetch("https://formspree.io/f/butuc.aliona2006@gmail.com", {
+                method: "POST",
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Mesaj de succes
+                responseMessage.innerHTML = "<span style='color: green;'>Mesajul a fost trimis cu succes! Te vom contacta în curând.</span>";
+                contactForm.reset(); // Curăță câmpurile formularului
+            } else {
+                // Mesaj de eroare de la server
+                responseMessage.innerHTML = "<span style='color: red;'>Ups! A apărut o problemă. Te rugăm să încerci din nou.</span>";
+            }
+        } catch (error) {
+            // Mesaj de eroare de rețea
+            responseMessage.innerHTML = "<span style='color: red;'>Eroare de conexiune. Verifică internetul.</span>";
+        } finally {
+            // Resetăm butonul
+            submitBtn.innerText = "TRIMITE";
+            submitBtn.disabled = false;
+        }
+    });
+}
